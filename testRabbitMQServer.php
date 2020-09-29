@@ -6,10 +6,24 @@ require_once('rabbitMQLib.inc');
 
 function doLogin($username,$password)
 {
-    // lookup username in databas
-    // check password
-    return true;
-    //return false if not valid
+  // Connect to DB
+  // $mydb = new mysqli('25.6.86.226','root','12345','testdb');
+
+  // Error check
+  // if ($mydb->errno != 0)
+  // {
+  //   echo "failed to connect to database: ". $mydb->error . PHP_EOL;
+  //   exit(0);
+  // }else{
+  //   echo "successfully connected to database".PHP_EOL;
+  // }
+
+  // lookup username in database
+  // $query = "select * from students;";
+
+  // check password
+  return true;
+  //return false if not valid
 }
 
 function requestProcessor($request)

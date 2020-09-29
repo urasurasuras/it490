@@ -1,5 +1,5 @@
 <?php
-require_once('/home/uras/rabbitmqphp_example/rabbitMQLib.inc');
+require_once('rabbitMQLib.inc');
 
 
 if (!isset($_POST))
