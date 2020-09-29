@@ -8,25 +8,24 @@ function HandleLoginResponse(response)
    document.getElementById("textResponse").innerHTML = "response: "+text+"<p>";
 }
  
+
 function SendLoginRequest(username,password)
 {
-   var request = new XMLHttpRequest();
-   request.open("POST","login.php",true);
-   request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-   request.onreadystatechange= function ()
-   {
-      
-       if ((this.readyState == 4)&&(this.status == 200))
-       {
-           HandleLoginResponse(this.responseText);
-       }      
-   }
-   request.send("type=login&uname="+username+"&pword="+password);
+  var request = new XMLHttpRequest();
+  request.open("POST","login.php",true);
+  request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+  request.onreadystatechange= function ()
+  {    
+    if ((this.readyState == 4)&&(this.status == 200))
+    {
+      HandleLoginResponse("Successful login!");
+      HandleLoginResponse(this.responseText);
+    }      
+  }
+  request.send("type=login&uname="+username.value+"&pword="+password.value);
 }
 </script>
-<script>
-SendLoginRequest("inputEmail","inputPassword");
-</script>
+
 </html>
 <html lang="en">
   <head>
@@ -40,7 +39,7 @@ SendLoginRequest("inputEmail","inputPassword");
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
@@ -49,16 +48,22 @@ SendLoginRequest("inputEmail","inputPassword");
   <body class="text-center">
     <form class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="uname" class="sr-only">Username</label>
+      <input id="uname" class="form-control" placeholder="Username" required autofocus>
+      <label for="pword" class="sr-only">Password</label>
+      <input type="password" id="pword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button onclick="SendLoginRequest(uname,pword)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
+
+    <div id="textResponse">
+      Awaiting response
+    </div>
+
+
   </body>
 </html>
