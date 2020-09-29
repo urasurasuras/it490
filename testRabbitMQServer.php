@@ -4,10 +4,12 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
+echo "runnning".PHP_EOL;
+
 function doLogin($username,$password) 
 {  
    
- $mydb = new mysqli('25.6.86.226','root','12345','testdb');
+ $mydb = new mysqli('25.6.86.226','root','12345','usersDB');
 
   if ($mydb->errno != 0)
   {
@@ -17,24 +19,27 @@ function doLogin($username,$password)
     echo "successfully connected to database".PHP_EOL;
   }
 
-  $queryUName = "select * from students where name='".$username."';"; 
+  $queryUName = "select * from users where username='".$username."';"; 
   $responseUName = $mydb->query($queryUName);
  
-  if ($responseUName->num_rows == 0) {
+  if (!empty($responseUName) && $responseUName->num_rows == 0) {
     // NOTIFICATION THAT NO USERNAME MATCH FOUND
-    echo "No such username found in records.";
-    return true;
+    echo $username." was not found in records.";
+    //return true;
+    return array("returnCode" => '0', 'message'=>$username." was not found in records.");
   }else{
-    $queryUPass = "select * from students where id='".$password."';";
+    $queryUPass = "select * from users where password='".$password."';";
     $responseUPass = $mydb->query($queryUPass);
-    if ($responseUPass->num_rows == 1)
+    if (!empty($responseUPass) && $responseUPass->num_rows == 1)
     {
-      echo "User was found in records.";
-      return true;
+      echo $username." was found in records.";
+      //return true;
+      return array("returnCode" => '0', 'message'=>$username." was found in records.");
     }else{
       // NOTIFICATION OF INCORRECT PASSWORD
-      echo "Incorrect password.";
-      return true;
+      echo "Incorrect password for ".$username;
+      //return true;
+      return array("returnCode" => '0', 'message'=>"Incorrect password for ".$username);
     }
   }
 
@@ -72,7 +77,7 @@ function requestProcessor($request)
   }
   switch ($request['type'])
   {
-    case "Login":
+    case "login":
       return doLogin($request['username'],$request['password']);
     case "validate_session":
       return doValidate($request['sessionId']);
