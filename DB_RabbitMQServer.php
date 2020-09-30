@@ -9,11 +9,11 @@ echo "runnning".PHP_EOL;
 function doLogin($username,$password) 
 {  
    
- $mydb = new mysqli('127.0.0.1','root','12345','usersDB');
+  $mydb = new mysqli('127.0.0.1','testUser','12345','usersDB');
 
   if ($mydb->errno != 0)
   {
-    echo "failed to connect to database: ". $mydb->error . PHP_EOL;
+    echo __FILE__.':'.__LINE__.":error: ".$mydb->error.PHP_EOL;
     exit(0);
   }else{
     echo "successfully connected to database".PHP_EOL;
@@ -22,33 +22,41 @@ function doLogin($username,$password)
   $queryUName = "select * from users where username='".$username."';"; 
   $responseUName = $mydb->query($queryUName);
  
+  $responseArray = array();
   if (!empty($responseUName) && $responseUName->num_rows == 0) {
     // NOTIFICATION THAT NO USERNAME MATCH FOUND
-    echo $username." was not found in records.";
-    //return true;
-    return array("returnCode" => '0', 'message'=>$username." was not found in records.");
-  }else{
+    // echo $username." was not found in records.";
+    
+    $responseArray['returnCode']  = '0';
+    $responseArray['message']     = $username." was not found in records.";
+  }
+  else{
+    //FIXME: This query returns ALL users with the same password, 
+    //should look for only $username 's password instead
     $queryUPass = "select * from users where password='".$password."';";
+    
     $responseUPass = $mydb->query($queryUPass);
     if (!empty($responseUPass) && $responseUPass->num_rows == 1)
     {
-      echo $username." was found in records.";
-      //return true;
-      return array("returnCode" => '0', 'message'=>$username." was found in records.");
+      // echo $username." was found in records.";
+      
+      $responseArray['returnCode']  = '1';
+      $responseArray['message']     = $username." was found in records.";
+      
     }else{
       // NOTIFICATION OF INCORRECT PASSWORD
-      echo "Incorrect password for ".$username;
-      //return true;
-      return array("returnCode" => '0', 'message'=>"Incorrect password for ".$username);
+      // echo "Incorrect password for ".$username;
+      
+      $responseArray['returnCode']  = '2';
+      $responseArray['message']     = "Incorrect password for ".$username;  
     }
+
+    echo "Response array: ".PHP_EOL;
+    print_r($responseArray);
+    return $responseArray;// Always return a response array, if it's empty then we know
   }
 
-  if ($mydb->errno != 0)
-  {
-    echo "failed to execute query:".PHP_EOL;
-    echo __FILE__.':'.__LINE__.":error: ".$mydb->error.PHP_EOL;
-    exit(0);
-  }
+  
   /** 
   *if ($response->num_rows > 0){
   *  // output each row
@@ -58,11 +66,6 @@ function doLogin($username,$password)
   *}else {
   *  echo "no results".PHP_EOL;
   *}
-  *
-  * lookup username in databas
-  * check password
-  * return true;
-  * return false if not valid
   *
   */
 }

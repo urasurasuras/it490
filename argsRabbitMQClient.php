@@ -7,9 +7,9 @@ require_once('rabbitMQLib.inc');
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 if (isset($argv[1]))
 {
-  $msg = $argv[1];
-  $username = $argv[2];
-  $password = $argv[3];
+  $username = $argv[1];
+  $password = $argv[2];
+  $msg = $argv[3];
 }
 else
 {
