@@ -4,23 +4,52 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
-echo "runnning".PHP_EOL;
+$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+
+echo "testRabbitMQServer BEGIN".PHP_EOL;
+// Connect to MySQL only once in the beginning 
+$mydb = new mysqli('127.0.0.1','testuser','12345','testdb');
+
+if ($mydb->errno != 0)
+{
+  echo __FILE__.':'.__LINE__.":error: ".$mydb->error.PHP_EOL;
+  exit(0);
+}else{
+  echo "successfully connected to database".PHP_EOL;
+}
+
+$server->process_requests('requestProcessor');
+echo "testRabbitMQServer END".PHP_EOL;
+exit();
+
+/*
+Function definitions
+*/
+
+function requestProcessor($request)
+{
+  echo "received request".PHP_EOL;
+  var_dump($request);
+  if(!isset($request['type']))
+  {
+    return "ERROR: unsupported message type";
+  }
+  switch ($request['type'])
+  {
+    case "login":
+      return doLogin($request['username'],$request['password']);
+    case "validate_session":
+      return doValidate($request['sessionId']);
+  }
+  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+}
 
 function doLogin($username,$password) 
 {  
-   
-  $mydb = new mysqli('127.0.0.1','testUser','12345','usersDB');
-
-  if ($mydb->errno != 0)
-  {
-    echo __FILE__.':'.__LINE__.":error: ".$mydb->error.PHP_EOL;
-    exit(0);
-  }else{
-    echo "successfully connected to database".PHP_EOL;
-  }
+  $DB = $GLOBALS['mydb'];// Locally reference the globally defined connection
 
   $queryUName = "select * from users where username='".$username."';"; 
-  $responseUName = $mydb->query($queryUName);
+  $responseUName = $DB->query($queryUName);
  
   $responseArray = array();
   if (!empty($responseUName) && $responseUName->num_rows == 0) {
@@ -35,7 +64,7 @@ function doLogin($username,$password)
     //should look for only $username 's password instead
     $queryUPass = "select * from users where password='".$password."';";
     
-    $responseUPass = $mydb->query($queryUPass);
+    $responseUPass = $DB->query($queryUPass);
     if (!empty($responseUPass) && $responseUPass->num_rows == 1)
     {
       // echo $username." was found in records.";
@@ -69,30 +98,5 @@ function doLogin($username,$password)
   *
   */
 }
-
-function requestProcessor($request)
-{
-  echo "received request".PHP_EOL;
-  var_dump($request);
-  if(!isset($request['type']))
-  {
-    return "ERROR: unsupported message type";
-  }
-  switch ($request['type'])
-  {
-    case "login":
-      return doLogin($request['username'],$request['password']);
-    case "validate_session":
-      return doValidate($request['sessionId']);
-  }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
-}
-
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
-
-echo "testRabbitMQServer BEGIN".PHP_EOL;
-$server->process_requests('requestProcessor');
-echo "testRabbitMQServer END".PHP_EOL;
-exit();
 ?>
 
