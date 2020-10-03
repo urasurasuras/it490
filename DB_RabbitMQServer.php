@@ -3,6 +3,9 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logger.php');
+$logger = new Logger(__FILE__);
+set_error_handler(array($logger, 'onError'));
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
@@ -20,6 +23,8 @@ if ($mydb->errno != 0)
 
 $server->process_requests('requestProcessor');
 echo "testRabbitMQServer END".PHP_EOL;
+$logger->close_logger();
+
 exit();
 
 /*
@@ -50,7 +55,7 @@ function doLogin($username,$password)
 
   $queryUName = "select * from users where username='".$username."';"; 
   $responseUName = $DB->query($queryUName);
- 
+ trigger_error("test");
   $responseArray = array();
   if (!empty($responseUName) && $responseUName->num_rows == 0) {
     // NOTIFICATION THAT NO USERNAME MATCH FOUND
@@ -81,7 +86,7 @@ function doLogin($username,$password)
     }
 
     echo "Response array: ".PHP_EOL;
-    print_r($responseArray);
+    echo $responseArray;
     return $responseArray;// Always return a response array, if it's empty then we know
   }
 

@@ -3,6 +3,10 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logger.php');
+
+$logger = new Logger(__FILE__);
+set_error_handler(array($logger, 'onError'));
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 if (isset($argv[1]))
@@ -24,9 +28,16 @@ $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 
+trigger_error("Custom serrrrrosssrs");
+trigger_error("Custom 2");
+
+
+// $logger->logg("client received response: ".PHP_EOL);
 echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 
 echo $argv[0]." END".PHP_EOL;
+$logger->close_logger();
 
+?>
