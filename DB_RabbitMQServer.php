@@ -5,7 +5,7 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logger.php');
 
-$logger = new Logger(__FILE__);
+$logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
@@ -80,7 +80,6 @@ function doLogin($username,$password)
   $responseUSER = $DB->query($queryUSER); // Get response from using query
   $row = $responseUSER->fetch_assoc();    // Turn response into array
   echo "Looking for: ".$row["username"].": ".$row["password"]."...".PHP_EOL;
-  $localLogger->logg("this is from ".__FILE__);
   
   if (!$row){// If user doesn't exist
     $responseArray['returnCode']  = '1';
@@ -100,8 +99,7 @@ function doLogin($username,$password)
   }
 
   echo "Response array: ".PHP_EOL;
-  
-  print_r($responseArray); // Just added at 10:27 PM
+  print_r($responseArray); 
   return $responseArray;// Always return a response array, if it's empty then we know
 }
 ?>

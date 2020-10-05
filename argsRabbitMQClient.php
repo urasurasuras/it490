@@ -5,7 +5,7 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logger.php');
 
-$logger = new Logger(__FILE__);
+$logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
@@ -27,13 +27,12 @@ $request['password'] = $password;
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
-$logger->logg("fuck me in the ass");
+$logger->logg("it's snowing on mount Fuji");
 
 echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 
 echo $argv[0]." END".PHP_EOL;
-$logger->close_logger();
 
 ?>
