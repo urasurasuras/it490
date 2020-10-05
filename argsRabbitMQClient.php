@@ -27,12 +27,8 @@ $request['password'] = $password;
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
+$logger->logg("fuck me in the ass");
 
-trigger_error("Custom serrrrrosssrs");
-trigger_error("Custom 2");
-
-
-// $logger->logg("client received response: ".PHP_EOL);
 echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";

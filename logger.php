@@ -11,12 +11,14 @@ class Logger{
 
     function onError($errno, $errstr, $errfile, $errline){
         $string = "Errno: ".$errno.". ".$errfile.": ".$errline.": ".$errstr;
-        $this->logg($string);
+        $this->logg($errstr);
     }
 
-    function logg($string){
-        // $string = "Errno: ".$errno.". ".$errfile.": ".$errline.": ".$errstr;
-        fwrite($this->FILE, $string.PHP_EOL);    
+    function logg($data){
+        $bt = debug_backtrace()[0];
+        $filepath = $bt['file'];
+        $line = $bt['line'];
+        fwrite($this->FILE, $filepath.": ".$line.": ".json_encode( $data ).PHP_EOL);    
     }
 
     function close_logger(){
