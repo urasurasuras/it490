@@ -27,13 +27,13 @@ $request['password'] = $password;
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
-$logger->logg("fuck me in the ass");
+$logger->logg("it's snowing on mount Fuji");
 
 echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 
 echo $argv[0]." END".PHP_EOL;
-$logger->close_logger();
+// $logger->close_logger();
 
 ?>

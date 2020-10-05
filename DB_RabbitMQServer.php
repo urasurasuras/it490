@@ -80,7 +80,6 @@ function doLogin($username,$password)
   $responseUSER = $DB->query($queryUSER); // Get response from using query
   $row = $responseUSER->fetch_assoc();    // Turn response into array
   echo "Looking for: ".$row["username"].": ".$row["password"]."...".PHP_EOL;
-  $localLogger->logg("this is from ".__FILE__);
   
   if (!$row){// If user doesn't exist
     $responseArray['returnCode']  = '1';
