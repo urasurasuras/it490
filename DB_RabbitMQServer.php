@@ -4,6 +4,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logger.php');
+
 $logger = new Logger(__FILE__);
 set_error_handler(array($logger, 'onError'));
 
@@ -12,6 +13,17 @@ $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 echo "testRabbitMQServer BEGIN".PHP_EOL;
 // Connect to MySQL only once in the beginning 
 $mydb = new mysqli('127.0.0.1','testuser','12345','testdb');
+
+/**
+ * REMEMBER TO CREATE A DATABASE - use these commands from root
+ * create user 'testuser'@'localhost' identified by '12345';
+ * create database testdb;
+ * grant all privileges on testdb.* to 'testuser'@'localhost';
+ * flush privileges;
+ * use testdb;
+ * create table users (id int NOT NULL, username varchar(20), password varchar(20), primary key (id));
+ * insert into users (id, username, password) values ('1', 'testuser', 'testpass');
+ */
 
 if ($mydb->errno != 0)
 {
@@ -28,7 +40,7 @@ $logger->close_logger();
 exit();
 
 /*
-Function definitions
+Function Definitions
 */
 
 function requestProcessor($request)
@@ -51,46 +63,42 @@ function requestProcessor($request)
 
 function doLogin($username,$password) 
 {  
-  $DB = $GLOBALS['mydb'];// Locally reference the globally defined connection
-
-  $queryUName = "select * from users where username='".$username."';"; 
-  $responseUName = $DB->query($queryUName);
- trigger_error("test");
+  $doLoginLogger = $GLOBALS['logger'];
+  $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
   $responseArray = array();
-  if (!empty($responseUName) && $responseUName->num_rows == 0) {
-    // NOTIFICATION THAT NO USERNAME MATCH FOUND
-    // echo $username." was not found in records.";
-    
-    $responseArray['returnCode']  = '0';
-    $responseArray['message']     = $username." was not found in records.";
+  $queryUName = "SELECT username FROM users WHERE username='".$username."';"; 
+  $doLoginLogger->logg(__LINE__." ".$queryUName); // DEBUGGING?
+  $responseUName = $DB->query($queryUName);
+   
+  if (empty($responseUName)){
+    // NOTIFICATION THAT NO USERNAME MATCH FOUND    
+    $responseArray['returnCode']  = '1';
+    $responseArray['message']     = $username." was not found in our database.";
+    $doLoginLogger->logg("Username not found");
   }
   else{
-    //FIXME: This query returns ALL users with the same password, 
-    //should look for only $username 's password instead
-    $queryUPass = "select * from users where password='".$password."';";
-    
+    $queryUPass = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."';";
     $responseUPass = $DB->query($queryUPass);
-    if (!empty($responseUPass) && $responseUPass->num_rows == 1)
-    {
-      // echo $username." was found in records.";
-      
-      $responseArray['returnCode']  = '1';
-      $responseArray['message']     = $username." was found in records.";
+    if (empty($responseUPass)){
+      // NOTIFICATION OF INCORRECT PASSWORD    
+      $responseArray['returnCode']  = '2';
+      $responseArray['message']     = "Incorrect password for ".$username.".";  
+      $doLoginLogger->logg("wrong password for the username");
       
     }else{
-      // NOTIFICATION OF INCORRECT PASSWORD
-      // echo "Incorrect password for ".$username;
-      
-      $responseArray['returnCode']  = '2';
-      $responseArray['message']     = "Incorrect password for ".$username;  
+      // echo $username." was found in records.";
+
+      $responseArray['returnCode']  = '0';
+      $responseArray['message']     = $username." was found in our database.";
+      $doLoginLogger->logg("found you bitch");
     }
 
     echo "Response array: ".PHP_EOL;
     echo $responseArray;
+    print_r($responseArray); // Just added at 10:27 PM
     return $responseArray;// Always return a response array, if it's empty then we know
   }
 
-  
   /** 
   *if ($response->num_rows > 0){
   *  // output each row
