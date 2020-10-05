@@ -61,55 +61,47 @@ function requestProcessor($request)
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
 
+/**
+ * Do Login
+ * 
+ * @param $username Username
+ * @param $password Password
+ * 
+ * @return type 0 on success, 1 on no user, 2 on wrong pass
+ */
 function doLogin($username,$password) 
 {  
-  $doLoginLogger = $GLOBALS['logger'];
+  $localLogger = $GLOBALS['logger'];
   $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
-  $responseArray = array();
-  $queryUName = "SELECT username FROM users WHERE username='".$username."';"; 
-  $doLoginLogger->logg(__LINE__." ".$queryUName); // DEBUGGING?
-  $responseUName = $DB->query($queryUName);
-   
-  if (empty($responseUName)){
-    // NOTIFICATION THAT NO USERNAME MATCH FOUND    
+  $responseArray = array();// Init response array
+
+  // Get the whole row for asked username
+  $queryUSER = "SELECT * FROM users WHERE username='".$username."';"; 
+  $responseUSER = $DB->query($queryUSER); // Get response from using query
+  $row = $responseUSER->fetch_assoc();    // Turn response into array
+  echo "Looking for: ".$row["username"].": ".$row["password"]."...".PHP_EOL;
+
+  if (!$row){// If user doesn't exist
     $responseArray['returnCode']  = '1';
     $responseArray['message']     = $username." was not found in our database.";
-    $doLoginLogger->logg("Username not found");
+    $localLogger->logg("Username not found");
   }
-  else{
-    $queryUPass = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."';";
-    $responseUPass = $DB->query($queryUPass);
-    if (empty($responseUPass)){
-      // NOTIFICATION OF INCORRECT PASSWORD    
+  else{// If user does exist
+    if ($row['password'] != $password){// If password does not match
       $responseArray['returnCode']  = '2';
       $responseArray['message']     = "Incorrect password for ".$username.".";  
-      $doLoginLogger->logg("wrong password for the username");
-      
-    }else{
-      // echo $username." was found in records.";
-
+      $localLogger->logg("wrong password for the username");
+    }else{// If password does match
       $responseArray['returnCode']  = '0';
       $responseArray['message']     = $username." was found in our database.";
-      $doLoginLogger->logg("found you bitch");
+      $localLogger->logg("found you bitch");
     }
-
-    echo "Response array: ".PHP_EOL;
-    echo $responseArray;
-    print_r($responseArray); // Just added at 10:27 PM
-    return $responseArray;// Always return a response array, if it's empty then we know
   }
 
-  /** 
-  *if ($response->num_rows > 0){
-  *  // output each row
-  *  while($row = $response->fetch_assoc()){
-  *    echo "id: ".$row["id"]." - Name: ".$row["name"].PHP_EOL;
-  *  }
-  *}else {
-  *  echo "no results".PHP_EOL;
-  *}
-  *
-  */
+  echo "Response array: ".PHP_EOL;
+  
+  print_r($responseArray); // Just added at 10:27 PM
+  return $responseArray;// Always return a response array, if it's empty then we know
 }
 ?>
 
