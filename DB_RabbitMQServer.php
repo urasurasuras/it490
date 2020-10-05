@@ -100,8 +100,7 @@ function doLogin($username,$password)
   }
 
   echo "Response array: ".PHP_EOL;
-  
-  print_r($responseArray); // Just added at 10:27 PM
+  print_r($responseArray); 
   return $responseArray;// Always return a response array, if it's empty then we know
 }
 ?>
