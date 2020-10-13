@@ -6,6 +6,8 @@ require_once('rabbitMQLib.inc');
 require_once('logger.php');
 
 $logger = new LoggerClient(__FILE__);
+$loggerServer = new LoggerServer(__FILE__."_distributed");
+
 set_error_handler(array($logger, 'onError'));
 
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
