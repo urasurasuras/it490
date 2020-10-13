@@ -14,7 +14,16 @@ function requestProcessor($request)
     return "ERROR: unsupported message type";
   }
 
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+  $client = new rabbitMQClient('testRabbitMQ.ini','loggerClient');
+  $request = array();
+  $request['bnet'] = "Tekircan-2533";
+  $request['platform'] = 'pc';
+  $request['region'] = 'us';
+  
+  $response = $client->send_request($request);
+  print_r($response);
+
+  return array("returnCode" => '0', 'message'=>$response['rating']);
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
