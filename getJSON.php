@@ -29,16 +29,18 @@ function requestProcessor($request)
     return "ERROR: unsupported message type";
   }
 
-  $url = 'https://ow-api.com/v1/stats/'.$request['platform'].'/'.$request['region'].'/'.$request['bnet'].'/complete';
+  $btag = str_replace("#", "-", $request['bnet']);
+  echo $btag.PHP_EOL;
+  $url = 'https://ow-api.com/v1/stats/'.$request['platform'].'/'.$request['region'].'/'.$btag.'/complete';
   echo "URL: ".$url.PHP_EOL;
 
-    $json = file_get_contents('https://ow-api.com/v1/stats/pc/us/Tekircan-2533/complete');
+    $json = file_get_contents($url);
     $obj = json_decode($json);
 
     print_r( $obj->rating);
 
 
-  return array("rating" => $obj->rating);
+  return array("rating" => $obj);
 }
 
 // print_r($json);

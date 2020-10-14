@@ -11,7 +11,7 @@ class LoggerClient{
 
     function __construct($filename){
         
-        $this->FILE = fopen($filename.".log", "a") or die("Unable to open file!");
+        $this->FILE = fopen(/*"log/local/".*/$filename.".log", "a") or die("Unable to open file!");
 
         fwrite($this->FILE, PHP_EOL);
         fwrite($this->FILE, date(DATE_RFC2822)." /START".PHP_EOL);
@@ -50,7 +50,7 @@ class LoggerServer{
 
     function __construct($filename){
         
-        $this->FILE = fopen($filename.".log", "a") or die("Unable to open file!");
+        $this->FILE = fopen(/*"log/distributed/".*/$filename.".log", "a") or die("Unable to open file!");
 
         fwrite($this->FILE, PHP_EOL);
         fwrite($this->FILE, date(DATE_RFC2822)." /START LOGGER SERVER".PHP_EOL);

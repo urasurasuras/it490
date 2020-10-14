@@ -15,15 +15,15 @@ function requestProcessor($request)
   }
 
   $client = new rabbitMQClient('testRabbitMQ.ini','loggerClient');
-  $request = array();
-  $request['bnet'] = "Tekircan-2533";
+  // $request = array();
+  $request['bnet'] = $request['bnet'];
   $request['platform'] = 'pc';
   $request['region'] = 'us';
   
   $response = $client->send_request($request);
   print_r($response);
 
-  return array("returnCode" => '0', 'message'=>$response['rating']);
+  return array("returnCode" => '0', "rating"=>$response['rating']);
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");

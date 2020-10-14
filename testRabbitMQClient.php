@@ -18,7 +18,7 @@ $request = array();
 $request['type'] = "login";
 $request['username'] = "steve";
 $request['password'] = "password";
-$request['message'] = $msg;
+$request['bnet'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 
