@@ -3,6 +3,10 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logger.php');
+
+$logger = new LoggerClient(__FILE__);
+set_error_handler(array($logger, 'onError'));
 
 //  This test server only prints out whatever array it gets
 function requestProcessor($request)
@@ -14,7 +18,7 @@ function requestProcessor($request)
     return "ERROR: unsupported message type";
   }
 
-  $client = new rabbitMQClient('testRabbitMQ.ini','loggerClient');
+  $client = new rabbitMQClient('testRabbitMQ.ini','API_Client');
   // $request = array();
   $request['bnet'] = $request['bnet'];
   $request['platform'] = 'pc';

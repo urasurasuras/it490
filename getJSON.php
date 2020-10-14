@@ -7,9 +7,12 @@ require_once('logger.php');
 
 ini_set("allow_url_fopen", 1);
 
+$logger = new LoggerClient(__FILE__);
+set_error_handler(array($logger, 'onError'));
+
 echo __FILE__."BEGIN".PHP_EOL;
 
-$server = new rabbitMQServer("testRabbitMQ.ini","loggerServer");
+$server = new rabbitMQServer("testRabbitMQ.ini","API_Client");
 
 $server->process_requests('requestProcessor');
 echo __FILE__."END".PHP_EOL;
