@@ -42,8 +42,8 @@ function requestProcessor($request)
 
     print_r( $obj->rating);
 
-
-  return array("rating" => $obj);
+  // TODO: Make this array only contain the necessary information, this will do for now
+  return array("rating" => $obj->rating, "ratings" => $obj->ratings);
 }
 
 // print_r($json);
