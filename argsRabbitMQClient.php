@@ -18,8 +18,8 @@ if (isset($argv[1]))
 }
 else
 {
-  exit(0);
   trigger_error("Too few args bruv");
+  exit(0);
   // $bnet = "Tekircan#2533";
 }
 
