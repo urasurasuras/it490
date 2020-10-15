@@ -53,12 +53,14 @@ function requestProcessor($request)
   }
   switch ($request['type'])
   {
+    case "register":
+      return doRegister($request['username'],$request['password'],$request['bnet']);
     case "login":
       return doLogin($request['username'],$request['password']);
     case "validate_session":
       return doValidate($request['sessionId']);
   }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+  return array("returnCode" => '-1', 'message'=>"Server received request and processed");
 }
 
 /**
@@ -92,15 +94,52 @@ function doLogin($username,$password)
       $responseArray['message']     = "Incorrect password for ".$username.".";  
       $localLogger->logg("wrong password for the username");
     }else{// If password does match
+      
+      if(isset($row['bnet'])){// If bnet is NOT null
+        $responseArray['bnet'] = $row['bnet'];
+      }
+
       $responseArray['returnCode']  = '0';
       $responseArray['message']     = $username." was found in our database.";
-      $localLogger->logg("found you bitch");
+      $responseArray['username']    = $username;
     }
   }
 
-  echo "Response array: ".PHP_EOL;
+  echo "Login response: ".PHP_EOL;
   print_r($responseArray); 
   return $responseArray;// Always return a response array, if it's empty then we know
 }
+
+function doRegister($username,$password, $bnet) {
+  $localLogger = $GLOBALS['logger'];
+  $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
+  $responseArray = array();// Init response array
+
+  $login = doLogin($username,$password);
+  
+  if($login['returnCode'] == '0'){// If user was found in DB
+    $responseArray['returnCode']  = '0';
+    $responseArray['message']     = 'User: '.$login['username'].' was found';
+
+    if(isset($login['bnet'])){
+      $responseArray['bnet'] = $login['bnet'];
+    }
+  }
+  else{
+    $registerQuery = "INSERT INTO users (username, password, bnet) VALUES ('".$username."', '".$password."', '".$bnet."')";
+    $result = $DB->query($registerQuery);
+
+    $responseArray['returnCode']  = '0';
+    $responseArray['username']    = $username;
+    $responseArray['password']    = $password;
+    $responseArray['bnet']        = $bnet;
+    $responseArray['message']     = 'User: '.$username.' was registered with BNET: '.$bnet;
+  }
+
+  echo "Register response: ".PHP_EOL;
+  print_r($responseArray); 
+  return $responseArray;// Always return a response array, if it's empty then we know
+}
+
 ?>
 

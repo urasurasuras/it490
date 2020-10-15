@@ -8,21 +8,23 @@ require_once('logger.php');
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
 
-$client = new rabbitMQClient("testRabbitMQ.ini","API_Client");
+$client = new rabbitMQClient("testRabbitMQ.ini","testClient");
 if (isset($argv[1]))
 {
-  $username = $argv[1];
-  $password = $argv[2];
-  $bnet = $argv[3];
+  $type = $argv[1];
+  $username = $argv[2];
+  $password = $argv[3];
+  $bnet = $argv[4];
 }
 else
 {
-  $bnet = "Tekircan#2533";
+  exit(0);
+  trigger_error("Too few args bruv");
+  // $bnet = "Tekircan#2533";
 }
 
-
 $request = array();
-$request['type'] = "login";
+$request['type'] = $type;
 $request['username'] = $username;
 $request['password'] = $password;
 $request['bnet'] = $bnet;
