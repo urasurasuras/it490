@@ -23,6 +23,8 @@ $mydb = new mysqli('127.0.0.1','testuser','12345','testdb');
  * use testdb;
  * create table users (id int NOT NULL, username varchar(20), password varchar(20), primary key (id));
  * insert into users (id, username, password) values ('1', 'testuser', 'testpass');
+ * 
+ * TODO: Come up with more sophisticated 'returnCode's
  */
 
 if ($mydb->errno != 0)
@@ -53,6 +55,8 @@ function requestProcessor($request)
   }
   switch ($request['type'])
   {
+    case "getJSON":
+      return doGetJSON($request['username'],$request['password']);
     case "register":
       return doRegister($request['username'],$request['password'],$request['bnet']);
     case "login":
@@ -110,6 +114,16 @@ function doLogin($username,$password)
   return $responseArray;// Always return a response array, if it's empty then we know
 }
 
+/**
+ * Register user:
+ * First checks if user exists by running doLogin
+ * Otherwise registers input as a new user
+ * 
+ * @param $username Username
+ * @param $password Password
+ * 
+ * @return array User info and action taken (existing login or new registered user)
+ */
 function doRegister($username,$password, $bnet) {
   $localLogger = $GLOBALS['logger'];
   $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
@@ -120,6 +134,9 @@ function doRegister($username,$password, $bnet) {
   if($login['returnCode'] == '0'){// If user was found in DB
     $responseArray['returnCode']  = '0';
     $responseArray['message']     = 'User: '.$login['username'].' was found';
+    $responseArray['username']    = $username;
+    $responseArray['password']    = $password;
+    $responseArray['bnet']        = $bnet;
 
     if(isset($login['bnet'])){
       $responseArray['bnet'] = $login['bnet'];
@@ -130,15 +147,64 @@ function doRegister($username,$password, $bnet) {
     $result = $DB->query($registerQuery);
 
     $responseArray['returnCode']  = '0';
+    $responseArray['message']     = 'User: '.$username.' was registered with BNET: '.$bnet;
     $responseArray['username']    = $username;
     $responseArray['password']    = $password;
     $responseArray['bnet']        = $bnet;
-    $responseArray['message']     = 'User: '.$username.' was registered with BNET: '.$bnet;
   }
 
   echo "Register response: ".PHP_EOL;
   print_r($responseArray); 
   return $responseArray;// Always return a response array, if it's empty then we know
+}
+
+/**
+ * Opens a client to the DMZ, which gets a JSON formatted response from:
+ * https://ow-api.com/
+ * 
+ * @param $username Username
+ * @param $password Password
+ * 
+ * @return array 0 if user exists, rating info is user has bnet
+ * 1 if user doesn't exist
+ * */
+function doGetJSON($username,$password){
+  $localLogger = $GLOBALS['logger'];
+  $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
+  $responseArray = array();// Init response array
+
+  $login = doLogin($username,$password);
+
+  if($login['returnCode'] == '0'){// If user was found in DB
+
+    $responseArray['returnCode']  = '0';
+    $responseArray['message']     = 'User: '.$login['username'].' was found';
+
+    if(!empty($login['bnet'])){
+      $responseArray['bnet'] = $login['bnet'];
+
+      $client = new rabbitMQClient('testRabbitMQ.ini','API_Client');
+      
+      $request['bnet'] = $login['bnet'];
+      $request['platform'] = 'pc';
+      $request['region'] = 'us';
+      
+      $response = $client->send_request($request);
+
+      echo "Info from ".$login['bnet'].PHP_EOL ;
+      print_r($response);
+    }
+    else{// user has no BNET asssinged
+      $responseArray['message']     = 'User: '.$login['username'].' was found with no Battle.net ID assigned to it';
+    }
+  }else{// If user was not found
+    $responseArray['returnCode']  = '1';
+    $responseArray['message']     = 'User: '.$login['username'].' was NOT found';
+  }
+
+  echo "Response from DMZ: ".PHP_EOL;
+  print_r($responseArray); 
+  return $responseArray;
 }
 
 ?>
