@@ -10,8 +10,10 @@ class LoggerClient{
     public $MACHINE;
 
     function __construct($filename){
+        $filename = basename($filename);
+        echo "Logging file: ".$filename.PHP_EOL;
         
-        $this->FILE = fopen(/*"log/local/".*/$filename.".log", "a") or die("Unable to open file!");
+        $this->FILE = fopen("log/local/".$filename.".log", "a") or die("Unable to open file!");
 
         fwrite($this->FILE, PHP_EOL);
         fwrite($this->FILE, date(DATE_RFC2822)." /START".PHP_EOL);
@@ -48,15 +50,18 @@ class LoggerClient{
 class LoggerServer{
     public $FILE;
 
-    function __construct($filename){
-        
-        $this->FILE = fopen(/*"log/distributed/".*/$filename.".log", "a") or die("Unable to open file!");
+    function __construct($filename, $cfg){
+        $filename = basename($filename);
+        echo "Log listener: ".$filename.PHP_EOL;
+
+        $this->FILE = fopen("../log/dist/".$filename.".log", "a") or die("Unable to open file!");
+
 
         fwrite($this->FILE, PHP_EOL);
         fwrite($this->FILE, date(DATE_RFC2822)." /START LOGGER SERVER".PHP_EOL);
         fwrite($this->FILE, "=========================================================".PHP_EOL);
 
-        $server = new rabbitMQServer("testRabbitMQ.ini","loggerServer"); 
+        $server = new rabbitMQServer("testRabbitMQ.ini",$cfg); 
         echo "loggerRabbitMQServer BEGIN".PHP_EOL;
         $server->process_requests(array($this, 'requestProcessor'));
     }

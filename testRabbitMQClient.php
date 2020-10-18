@@ -7,7 +7,7 @@ require_once('logger.php');
 
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
-
+$logger->logg("test Log");
 $client = new rabbitMQClient("testRabbitMQ.ini","testClient");//Check this part in the .ini file
 if (isset($argv[1]))
 {
