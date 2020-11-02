@@ -8,11 +8,23 @@ require_once('logger.php');
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
 
+echo basename(__FILE__)." BEGIN".PHP_EOL;
+
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
-echo "testRabbitMQServer BEGIN".PHP_EOL;
-// Connect to MySQL only once in the beginning 
-$mydb = new mysqli('127.0.0.1','testuser','12345','testdb');
+$hostname = 'localhost';
+$user = 'testuser';
+$password = '12345';
+$db_name = 'it490';
+$table_name = 'users';
+
+// Create connection
+$conn = new mysqli($hostname,$user,$password, $db_name);
+// Check connection.
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
 
 /**
  * REMEMBER TO CREATE A DATABASE - use these commands from root
@@ -27,9 +39,9 @@ $mydb = new mysqli('127.0.0.1','testuser','12345','testdb');
  * TODO: Come up with more sophisticated 'returnCode's
  */
 
-if ($mydb->errno != 0)
+if ($conn->errno != 0)
 {
-  echo __FILE__.':'.__LINE__.":error: ".$mydb->error.PHP_EOL;
+  echo __FILE__.':'.__LINE__.":error: ".$conn->error.PHP_EOL;
   exit(0);
 }else{
   echo "successfully connected to database".PHP_EOL;
@@ -78,7 +90,7 @@ function requestProcessor($request)
 function doLogin($username,$password) 
 {  
   $localLogger = $GLOBALS['logger'];
-  $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
+  $DB = $GLOBALS['conn']; // Locally reference the globally defined connection
   $responseArray = array();// Init response array
 
   // Get the whole row for asked username
@@ -126,7 +138,7 @@ function doLogin($username,$password)
  */
 function doRegister($username,$password, $bnet) {
   $localLogger = $GLOBALS['logger'];
-  $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
+  $DB = $GLOBALS['conn']; // Locally reference the globally defined connection
   $responseArray = array();// Init response array
 
   $login = doLogin($username,$password);
@@ -170,7 +182,7 @@ function doRegister($username,$password, $bnet) {
  * */
 function doGetJSON($username,$password){
   $localLogger = $GLOBALS['logger'];
-  $DB = $GLOBALS['mydb']; // Locally reference the globally defined connection
+  $DB = $GLOBALS['conn']; // Locally reference the globally defined connection
   $responseArray = array();// Init response array
 
   $login = doLogin($username,$password);

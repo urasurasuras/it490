@@ -29,7 +29,7 @@ function requestProcessor($request)
   var_dump($request);
   if(!isset($request['bnet']))
   {
-    return "ERROR: unsupported message type";
+    return "ERROR: unsupported message type".PHP_EOL;
   }
 
   $btag = str_replace("#", "-", $request['bnet']);
@@ -40,10 +40,15 @@ function requestProcessor($request)
     $json = file_get_contents($url);
     $obj = json_decode($json);
 
+    // If private account
+    if ($obj->private == true){
+      echo "Private: ".$obj->private;
+      return array("private" => $obj->private);
+    }
     print_r( $obj->rating);
 
   // TODO: Make this array only contain the necessary information, this will do for now
-  return array("rating" => $obj->rating, "ratings" => $obj->ratings);
+  return array("private" => $obj->private, "rating" => $obj->rating, "ratings" => $obj->ratings);
 }
 
 // print_r($json);
