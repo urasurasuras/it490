@@ -33,7 +33,7 @@ $request['region'] = 'us';
 
 $response = $client->send_request($request);
 //$response = $client->publish($request);
-
+$logger->logg("Sent Request");
 echo "client received response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
