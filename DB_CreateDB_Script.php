@@ -13,6 +13,7 @@ $password = '12345';
 $db_name = 'it490';
 $table_name_users = 'users';
 $table_name_bookings = 'bookings';
+$table_name_createForum = 'createForum';
 
 // Create connection
 $conn = new mysqli($hostname,$user,$password);
@@ -32,6 +33,7 @@ echo PHP_EOL;
 
 $conn-> select_db($sql);
 
+// Create users table 
 $query = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_users." (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
@@ -48,12 +50,30 @@ if ($conn->query($query) === TRUE) {
 }
 echo PHP_EOL;
 
-$query2 = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_bookings."
-	(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY 		
-	KEY, name VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, date DATE)";
+// Create bookings table
+$query2 = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_bookings."(
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	name VARCHAR(30) NOT NULL, 
+	email VARCHAR(50) NOT NULL, 
+	date DATE
+	)";
 
 if ($conn->query($query2) === TRUE) {
     echo "Table bookings created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+echo PHP_EOL;
+
+// Create createForum table
+$query3 = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_createForum." (
+    poster VARCHAR(30) NOT NULL,
+    post_title VARCHAR(30) NOT NULL,
+    post_desc TEXT NOT NULL
+    )";
+    
+if ($conn->query($query3) === TRUE) {
+    echo "Table ".$table_name_createForum." created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
