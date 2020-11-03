@@ -46,6 +46,16 @@ if ($conn->query($query) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo PHP_EOL;
+
+$query2 = "create table bookings (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY 		KEY, name VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, date DATE)";
+
+if ($conn->query($query2) === TRUE) {
+    echo "Table bookings created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+echo PHP_EOL;
+
 $conn->close();
 
 ?>
