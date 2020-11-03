@@ -3,8 +3,12 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logger.php');
 
-$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+$logger = new LoggerClient(__FILE__);
+set_error_handler(array($logger, 'onError'));
+$logger->logg("test Log");
+$client = new rabbitMQClient("testRabbitMQ.ini","testClient");//Check this part in the .ini file
 if (isset($argv[1]))
 {
   $msg = $argv[1];
@@ -15,10 +19,10 @@ else
 }
 
 $request = array();
-$request['type'] = "Login";
+$request['type'] = "login";
 $request['username'] = "steve";
 $request['password'] = "password";
-$request['message'] = $msg;
+$request['bnet'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 

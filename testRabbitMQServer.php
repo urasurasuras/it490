@@ -3,15 +3,12 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('logger.php');
 
-function doLogin($username,$password)
-{
-    // lookup username in databas
-    // check password
-    return true;
-    //return false if not valid
-}
+$logger = new LoggerClient(__FILE__);
+set_error_handler(array($logger, 'onError'));
 
+//  This test server only prints out whatever array it gets
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
@@ -20,14 +17,17 @@ function requestProcessor($request)
   {
     return "ERROR: unsupported message type";
   }
-  switch ($request['type'])
-  {
-    case "login":
-      return doLogin($request['username'],$request['password']);
-    case "validate_session":
-      return doValidate($request['sessionId']);
-  }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+
+  $client = new rabbitMQClient('testRabbitMQ.ini','API_Client');
+  // $request = array();
+  $request['bnet'] = $request['bnet'];
+  $request['platform'] = 'pc';
+  $request['region'] = 'us';
+  
+  $response = $client->send_request($request);
+  print_r($response);
+
+  return array("returnCode" => '0', "rating"=>$response['rating']);
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
