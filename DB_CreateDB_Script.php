@@ -11,7 +11,8 @@ $hostname = 'localhost';
 $user = 'testuser';
 $password = '12345';
 $db_name = 'it490';
-$table_name = 'users';
+$table_name_users = 'users';
+$table_name_bookings = 'bookings';
 
 // Create connection
 $conn = new mysqli($hostname,$user,$password);
@@ -31,7 +32,7 @@ echo PHP_EOL;
 
 $conn-> select_db($sql);
 
-$query = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name." (
+$query = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_users." (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL,
@@ -41,13 +42,15 @@ $query = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name." (
     )";
     
 if ($conn->query($query) === TRUE) {
-    echo "Table ".$table_name." created successfully";
+    echo "Table ".$table_name_users." created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
 }
 echo PHP_EOL;
 
-$query2 = "create table bookings (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY 		KEY, name VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, date DATE)";
+$query2 = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_bookings."
+	(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY 		
+	KEY, name VARCHAR(30) NOT NULL, email VARCHAR(50) NOT NULL, date DATE)";
 
 if ($conn->query($query2) === TRUE) {
     echo "Table bookings created successfully";
