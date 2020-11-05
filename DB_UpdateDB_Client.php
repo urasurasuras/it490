@@ -14,6 +14,7 @@ $password = '12345';
 $db_name = 'it490';
 $table_name = 'users';
 
+$logger->logg("Creating connection");
 // Create connection
 $conn = new mysqli($hostname,$user,$password, $db_name);
 // Check connection.
@@ -24,7 +25,7 @@ if ($conn->connect_error) {
 $query = "SELECT * FROM users"; 
 
 $result = $conn->query($query); // Get response from using query
-// echo "Looping through ".$result." rows...".PHP_EOL;
+$logger->logg("Looping through users database");
 
 while ($row = $result->fetch_assoc()){// Turn response into array
     echo 'Updating: '.$row['username'].' using: '.$row['bnet'].PHP_EOL;
@@ -63,5 +64,6 @@ while ($row = $result->fetch_assoc()){// Turn response into array
 
 echo PHP_EOL;
 $conn->close();
+$logger->logg("Connection closed");
 
 ?>
