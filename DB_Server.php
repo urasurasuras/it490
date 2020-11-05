@@ -114,10 +114,15 @@ function doLogin($username,$password)
       if(isset($row['bnet'])){// If bnet is NOT null
         $responseArray['bnet'] = $row['bnet'];
       }
+      
+      if(isset($row['rating'])){// If SR is NOT null
+        $responseArray['rating'] = $row['rating'];
+      }
 
       $responseArray['returnCode']  = '0';
       $responseArray['message']     = $username." was found in our database.";
       $responseArray['username']    = $username;
+
     }
   }
 
