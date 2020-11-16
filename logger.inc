@@ -12,7 +12,14 @@ class LoggerClient{
     function __construct($filename){
         $filename = basename($filename);
         echo "Logging file: ".$filename.PHP_EOL;
-        
+		
+		if (!file_exists('log')) {
+			mkdir ('log');
+		}
+		if (!file_exists('log/local')) {
+			mkdir ('log/local');
+		}
+		
         $this->FILE = fopen("log/local/".$filename.".log", "a") or die("Unable to open file!");
 
         fwrite($this->FILE, PHP_EOL);
@@ -54,6 +61,13 @@ class LoggerServer{
         $filename = basename($filename);
         echo "Log listener: ".$filename.PHP_EOL;
 
+		if (!file_exists('log')) {
+			mkdir ('log');
+		}
+		if (!file_exists('log/dist')) {
+			mkdir ('log/dist');
+		}
+		
         $this->FILE = fopen("../log/dist/".$filename.".log", "a") or die("Unable to open file!");
 
 

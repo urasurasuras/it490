@@ -30,7 +30,7 @@ scp -r $vb3:~/it490/FrontEnd* ./package/client
 # Pull DB scripts
 mkdir package/database
 scp -r $vb3:~/it490/DB* ./package/database
-
+# TODO: Export rabbitmq definitions
 # Pull DMZ scripts
 mkdir package/datasource
 scp -r $vb3:~/it490/DMZ* ./package/datasource
@@ -47,7 +47,7 @@ tar -zcvf build/package.tgz package
 echo Cleaning...
 echo
 
-rm -r package
+rm -r build/package
 
 echo DONE
 echo

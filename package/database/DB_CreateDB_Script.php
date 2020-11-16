@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-require_once('logger.inc');
+require_once('logger.php');
 
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
