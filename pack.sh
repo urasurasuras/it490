@@ -29,8 +29,9 @@ scp -r $vb3:~/it490/FrontEnd* ./package/client
 
 # Pull DB scripts
 mkdir package/database
-scp -r $vb3:~/it490/DB* ./package/database
+scp -r $vb2:~/it490/DB* ./package/database
 # TODO: Export rabbitmq definitions
+
 # Pull DMZ scripts
 mkdir package/datasource
 scp -r $vb3:~/it490/DMZ* ./package/datasource
@@ -51,3 +52,9 @@ rm -r build/package
 
 echo DONE
 echo
+
+# TODO: For unpacking:
+# 	install rabbitmq and enable management, import defnitions
+#	php
+#	php-amqp
+#	mysql-server
