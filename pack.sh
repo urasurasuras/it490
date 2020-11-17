@@ -6,56 +6,55 @@ echo $DB
 FE=$(awk -F "=" '/FE/ {print $2}' targets.ini)
 echo $FE
 
-# echo testecho
-# scp -r $DMZ:it490 ./
-# tar -zcvf it490.tgz it490/
-# rm -r it490
-#ssh user@remote "sudo scp -r user@local:/path/to/files /opt/bin"
+path_target='~/it490'
 
-echo Pulling...
-echo
+echo "\e[93m"
+echo Pulling..."\e[0m"
+ 
 
-mkdir build
-mkdir build/package
+mkdir -p build
+path_package='build/package'
+mkdir -p $path_package
 
 # Assume all scripts are in /it490
 
 # Pull libs and configs
-mkdir build/package/libs
-scp -r $FE:~/it490/*.inc ./build/package/libs
+mkdir -p $path_package/libs
+scp -r $FE:$path_target/*.inc $path_package/libs
 
 # Pull Client scripts
-mkdir build/package/client
-scp -r $FE:~/it490/FrontEnd* ./build/package/client
+mkdir -p $path_package/client
+scp -r $FE:$path_target/FrontEnd* $path_package/client
 
 # Pull DB scripts
-mkdir build/package/database
-scp -r $DB:~/it490/DB* ./build/package/database
+mkdir -p $path_package/database
+scp -r $DB:$path_target/DB* $path_package/database
 
 # Export rabbitmq definitions
 ssh $DB 'rabbitmqadmin export ~/rabbit.definitions.json'
-scp -r $DB:~/it490/DB* ./build/package/database
+scp -r $DB:$path_target/DB* $path_package/database
 ssh $DB 'rm ~/rabbit.definitions.json'
 
 # Pull DMZ scripts
-mkdir build/package/datasource
-scp -r $FE:~/it490/DMZ* ./build/package/datasource
+mkdir -p $path_package/datasource
+scp -r $FE:$path_target/DMZ* $path_package/datasource
 
 # Pull web page
-scp -r $DMZ:/var/www/html ./build/package
+scp -r $DMZ:/var/www/html $path_package
 
-echo Packing...
-echo
+echo "\e[93m"
+echo Packing..."\e[0m"
 
-tar -zcvf build/package.tgz build/package
+tar -zcvf $path_package.tgz $path_package
 
-echo Cleaning...
-echo
+echo "\e[93m"
+echo Cleaning..."\e[0m"
 
 rm -r build/package
 
-echo DONE
-echo
+echo "\e[92m"
+echo DONE"\e[0m"
+
 
 # TODO: For unpacking:
 # 	install rabbitmq and enable management, import defnitions
