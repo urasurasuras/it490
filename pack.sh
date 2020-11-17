@@ -1,13 +1,13 @@
 #!/bin/sh
-vb1=$(awk -F "=" '/VB1/ {print $2}' targets.ini)
-echo $vb1
-vb2=$(awk -F "=" '/VB2/ {print $2}' targets.ini)
-echo $vb2
-vb3=$(awk -F "=" '/VB3/ {print $2}' targets.ini)
-echo $vb3
+DMZ=$(awk -F "=" '/DMZ/ {print $2}' targets.ini)
+echo $DMZ
+DB=$(awk -F "=" '/DB/ {print $2}' targets.ini)
+echo $DB
+FE=$(awk -F "=" '/FE/ {print $2}' targets.ini)
+echo $FE
 
 # echo testecho
-# scp -r $vb1:it490 ./
+# scp -r $DMZ:it490 ./
 # tar -zcvf it490.tgz it490/
 # rm -r it490
 #ssh user@remote "sudo scp -r user@local:/path/to/files /opt/bin"
@@ -15,35 +15,39 @@ echo $vb3
 echo Pulling...
 echo
 
-mkdir package
+mkdir build
+mkdir build/package
 
 # Assume all scripts are in /it490
 
 # Pull libs and configs
-mkdir package/libs
-scp -r $vb3:~/it490/*.inc ./package/libs
+mkdir build/package/libs
+scp -r $FE:~/it490/*.inc ./build/package/libs
 
 # Pull Client scripts
-mkdir package/client
-scp -r $vb3:~/it490/FrontEnd* ./package/client
+mkdir build/package/client
+scp -r $FE:~/it490/FrontEnd* ./build/package/client
 
 # Pull DB scripts
-mkdir package/database
-scp -r $vb2:~/it490/DB* ./package/database
-# TODO: Export rabbitmq definitions
+mkdir build/package/database
+scp -r $DB:~/it490/DB* ./build/package/database
+
+# Export rabbitmq definitions
+ssh $DB 'rabbitmqadmin export ~/rabbit.definitions.json'
+scp -r $DB:~/it490/DB* ./build/package/database
+ssh $DB 'rm ~/rabbit.definitions.json'
 
 # Pull DMZ scripts
-mkdir package/datasource
-scp -r $vb3:~/it490/DMZ* ./package/datasource
+mkdir build/package/datasource
+scp -r $FE:~/it490/DMZ* ./build/package/datasource
 
 # Pull web page
-scp -r $vb1:/var/www/html ./package
+scp -r $DMZ:/var/www/html ./build/package
 
 echo Packing...
 echo
 
-mkdir build
-tar -zcvf build/package.tgz package
+tar -zcvf build/package.tgz build/package
 
 echo Cleaning...
 echo
