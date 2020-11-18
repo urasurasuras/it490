@@ -52,7 +52,7 @@ ssh $FE "chmod 777 $path_target"
 ssh $FE -t "sudo cp -r $path_target/front_end /var/www"
 # Deploy FE scripts
 scp -r $path_unpackage/client $FE:$path_target
-ssh $FE -t "sudo ln -fs $path_target/client/ /var/www/html/"
+ssh $FE -t "sudo ln -fs $path_target/client/ /var/www/front_end/"
 
 
 #	php
