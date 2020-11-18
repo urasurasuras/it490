@@ -1,7 +1,6 @@
 #!/usr/bin/php
 <?php
 require_once('rabbitMQLib.inc');
-
 // Change extension to .inc when done with this lib
 
 class LoggerClient{
@@ -25,8 +24,10 @@ class LoggerClient{
         fwrite($this->FILE, PHP_EOL);
         fwrite($this->FILE, date(DATE_RFC2822)." /START".PHP_EOL);
         fwrite($this->FILE, "=========================================================".PHP_EOL);
+		
+		$cfgDir = dirname(__FILE__)."/../cfg/";
 
-        $this->MACHINE = new rabbitMQClient("testRabbitMQ.ini","loggerClient");
+        $this->MACHINE = new rabbitMQClient($cfgDir."testRabbitMQ.ini","loggerClient");
     }   
 
     function onError($errno, $errstr, $errfile, $errline){
@@ -75,7 +76,9 @@ class LoggerServer{
         fwrite($this->FILE, date(DATE_RFC2822)." /START LOGGER SERVER".PHP_EOL);
         fwrite($this->FILE, "=========================================================".PHP_EOL);
 
-        $server = new rabbitMQServer("testRabbitMQ.ini",$cfg); 
+		$cfgDir = dirname(__FILE__)."/../cfg/";
+
+        $server = new rabbitMQServer($cfgDir."testRabbitMQ.ini",$cfg); 
         echo "loggerRabbitMQServer BEGIN".PHP_EOL;
         $server->process_requests(array($this, 'requestProcessor'));
     }

@@ -1,6 +1,9 @@
 #!/usr/bin/php
 <?php
-require_once('logger.inc');
+$libDir = dirname(__FILE__)."/../libs/";
+$cfgDir = dirname(__FILE__)."/../cfg/";
+
+require_once($libDir.'logger.inc');
 
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
@@ -30,7 +33,7 @@ $logger->logg("Looping through users database");
 while ($row = $result->fetch_assoc()){// Turn response into array
     echo 'Updating: '.$row['username'].' using: '.$row['bnet'].PHP_EOL;
 
-    $client = new rabbitMQClient('testRabbitMQ.ini','API_Client');
+    $client = new rabbitMQClient($cfgDir.'testRabbitMQ.ini','API_Client');
       
     $request['bnet'] = $row['bnet'];
     $request['platform'] = 'pc';

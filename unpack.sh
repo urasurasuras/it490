@@ -24,10 +24,13 @@ echo Deploying..."\e[0m"
 # TODO: Change lib targets in all scripts
 ssh $DB "mkdir -p $path_target"
 scp -r $path_unpackage/libs $DB:$path_target
+scp -r $path_unpackage/cfg $DB:$path_target
 ssh $FE "mkdir -p $path_target"
 scp -r $path_unpackage/libs $FE:$path_target
+scp -r $path_unpackage/cfg $FE:$path_target
 ssh $DMZ "mkdir -p $path_target"
 scp -r $path_unpackage/libs $DMZ:$path_target
+scp -r $path_unpackage/cfg $DMZ:$path_target
 
 # TODO: For unpacking:
 # 	install rabbitmq and enable management, import defnitions
@@ -44,9 +47,9 @@ ssh $DB "php $path_target/database/DB_CreateDB_Script.php"
 scp -r $path_unpackage/datasource $DMZ:$path_target
 
 # Deploy FE web page
-scp -r $path_unpackage/html $FE:$path_target
+scp -r $path_unpackage/front_end $FE:$path_target
 ssh $FE "chmod 777 $path_target"
-ssh $FE -t "sudo cp -r $path_target/html /var/www"
+ssh $FE -t "sudo cp -r $path_target/front_end /var/www"
 # Deploy FE scripts
 scp -r $path_unpackage/client $FE:$path_target
 ssh $FE -t "sudo ln -fs $path_target/client/ /var/www/html/"

@@ -1,9 +1,13 @@
 #!/usr/bin/php
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
-require_once('logger.inc');
+$libDir = dirname(__FILE__)."/../libs/";
+$cfgDir = dirname(__FILE__)."/../cfg/";
+
+require_once($libDir.'path.inc');
+require_once($libDir.'get_host_info.inc');
+require_once($libDir.'rabbitMQLib.inc');
+require_once($libDir.'logger.inc');
+
 
 ini_set("allow_url_fopen", 1);
 
@@ -12,11 +16,10 @@ set_error_handler(array($logger, 'onError'));
 
 echo __FILE__."BEGIN".PHP_EOL;
 
-$server = new rabbitMQServer("testRabbitMQ.ini","API_Client");
+$server = new rabbitMQServer($cfgDir."testRabbitMQ.ini","API_Client");
 
 $server->process_requests('requestProcessor');
 echo __FILE__."END".PHP_EOL;
-$logger->close_logger();
 
 exit();
 

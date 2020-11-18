@@ -1,6 +1,9 @@
 #!/usr/bin/php
 <?php
-require_once('logger.inc');
+$libDir = dirname(__FILE__)."/../libs/";
+$cfgDir = dirname(__FILE__)."/../cfg/";
+
+require_once($libDir.'logger.inc');
 
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));

@@ -1,15 +1,18 @@
 <?php
 
 @ob_start(PHP_OUTPUT_HANDLER_CLEANABLE, PHP_OUTPUT_HANDLER_REMOVABLE);
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
-require_once('logger.inc');
+$libDir = dirname(__FILE__)."/../libs/";
+$cfgDir = dirname(__FILE__)."/../cfg/";
+
+require_once($libDir.'path.inc');
+require_once($libDir.'get_host_info.inc');
+require_once($libDir.'rabbitMQLib.inc');
+require_once($libDir.'logger.inc');
 
 //$logger = new LoggerClient(__FILE__);
 //set_error_handler(array($logger, 'onError'));
 //$logger->logg("test Log");
-$client = new rabbitMQClient("testRabbitMQ.ini","testClient");//Check this part in the .ini file
+$client = new rabbitMQClient($cfgDir."testRabbitMQ.ini","testClient");//Check this part in the .ini file
 
 if (isset($argv[1]))
 {

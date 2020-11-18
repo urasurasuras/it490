@@ -1,14 +1,17 @@
 #!/usr/bin/php
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
-require_once('logger.inc');
+$libDir = dirname(__FILE__)."/../libs/";
+$cfgDir = dirname(__FILE__)."/../cfg/";
+
+require_once($libDir.'path.inc');
+require_once($libDir.'get_host_info.inc');
+require_once($libDir.'rabbitMQLib.inc');
+require_once($libDir.'logger.inc');
 
 $logger = new LoggerClient(__FILE__);
 set_error_handler(array($logger, 'onError'));
 
-$client = new rabbitMQClient("testRabbitMQ.ini","testClient");
+$client = new rabbitMQClient($cfgDir."testRabbitMQ.ini","testClient");
 if (isset($argv[1]))
 {
   $type = $argv[1];
