@@ -38,6 +38,7 @@ scp -r $path_unpackage/database $DB:$path_target
 # Import rabbitmq-server definitions
 ssh $DB "rabbitmqadmin import $path_target/database/rabbit.definitions.json"
 # Create database
+ssh $DB "php $path_target/database/DB_CreateDB_Script.php"
 
 # Deploy DMZ scripts
 scp -r $path_unpackage/datasource $DMZ:$path_target
