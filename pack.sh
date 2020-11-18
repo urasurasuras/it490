@@ -16,7 +16,6 @@ mkdir -p build
 path_package='build/package'
 mkdir -p $path_package
 
-# Assume all scripts are in /it490
 
 # Pull libs and configs
 mkdir -p $path_package/libs
@@ -32,7 +31,7 @@ scp -r $DB:$path_target/DB* $path_package/database
 
 # Export rabbitmq definitions
 ssh $DB 'rabbitmqadmin export ~/rabbit.definitions.json'
-scp -r $DB:$path_target/DB* $path_package/database
+scp -r $DB:~/rabbit.definitions.json $path_package/database
 ssh $DB 'rm ~/rabbit.definitions.json'
 
 # Pull DMZ scripts
@@ -54,10 +53,3 @@ rm -r build/package
 
 echo "\e[92m"
 echo DONE"\e[0m"
-
-
-# TODO: For unpacking:
-# 	install rabbitmq and enable management, import defnitions
-#	php
-#	php-amqp
-#	mysql-server
