@@ -6,7 +6,7 @@ echo $DB
 FE=$(awk -F "=" '/FE/ {print $2}' targets.ini)
 echo $FE
 
-path_target='~/it490'
+path_target='~/deployment'
 
 echo "\e[93m"
 echo Pulling..."\e[0m"
@@ -18,16 +18,15 @@ mkdir -p $path_package
 
 
 # Pull libs and configs
-mkdir -p $path_package/libs
-scp -r $FE:$path_target/*.inc $path_package/libs
+scp -r $DB:$path_target/libs $path_package
 
 # Pull Client scripts
 mkdir -p $path_package/client
-scp -r $FE:$path_target/FrontEnd* $path_package/client
+scp -r $FE:$path_target/client/FrontEnd_* $path_package/client
 
 # Pull DB scripts
 mkdir -p $path_package/database
-scp -r $DB:$path_target/DB* $path_package/database
+scp -r $DB:$path_target/database/DB_* $path_package/database
 
 # Export rabbitmq definitions
 ssh $DB 'rabbitmqadmin export ~/rabbit.definitions.json'
@@ -36,10 +35,10 @@ ssh $DB 'rm ~/rabbit.definitions.json'
 
 # Pull DMZ scripts
 mkdir -p $path_package/datasource
-scp -r $FE:$path_target/DMZ* $path_package/datasource
+scp -r $DMZ:$path_target/datasource/DMZ_* $path_package/datasource
 
 # Pull web page
-scp -r $DMZ:/var/www/html $path_package
+scp -r $FE:/var/www/html $path_package
 
 echo "\e[93m"
 echo Packing..."\e[0m"
