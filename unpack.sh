@@ -1,10 +1,40 @@
 #!/bin/sh
+
+helpFunction()
+{
+   echo ""
+   echo "Usage: $0 -i Package name"
+   echo "\t-i Package name"
+   # echo -e "\t-b Description of what is parameterB"
+   # echo -e "\t-c Description of what is parameterC"
+   exit 1 # Exit script after printing help
+}
+
+while getopts "i:" opt
+do
+   case "$opt" in
+      i ) package_name="$OPTARG" ;;
+      ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
+   esac
+done
+
+# Print helpFunction in case parameters are empty
+if [ -z "$package_name" ] 
+then
+   echo "Some or all of the parameters are empty";
+   helpFunction
+fi
+
+# Begin script in case all parameters are correct
+echo "Unpacking $package_name"
+
+
 DMZ=$(awk -F "=" '/DMZ/ {print $2}' targets.ini)
-echo $DMZ
+echo DMZ: $DMZ
 DB=$(awk -F "=" '/DB/ {print $2}' targets.ini)
-echo $DB
+echo DB: $DB
 FE=$(awk -F "=" '/FE/ {print $2}' targets.ini)
-echo $FE
+echo FE: $FE
 
 path_target='~/deployment'
 echo "\e[93m"
@@ -13,7 +43,7 @@ echo Unpacking..."\e[0m"
 # Unpack locally
 # path_package='build/open'
 # mkdir -p $path_package
-tar xzf build/package.tgz 
+tar xzf $package_name 
 path_unpackage='build/package'
 #echo $path_unpackage
 
