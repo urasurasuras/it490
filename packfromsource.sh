@@ -51,6 +51,12 @@ cp -r datasource $path_package
 cp -r libs $path_package
 cp -r cfg $path_package
 
+touch $path_package/version.ini
+echo '[metadata]' >> $path_package/version.ini
+echo 'version = '$version_number >> $path_package/version.ini
+currentDate=`date`
+echo 'date = '$currentDate >> $path_package/version.ini
+
 echo "\e[93m"
 echo Packing..."\e[0m"
 

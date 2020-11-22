@@ -51,19 +51,25 @@ echo "\e[93m"
 echo Deploying..."\e[0m"
 
 # Deploy libs to all machines
-# TODO: Change lib targets in all scripts
 ssh $DB "mkdir -p $path_target"
 scp -r $path_unpackage/libs $DB:$path_target
 scp -r $path_unpackage/cfg $DB:$path_target
+scp -r $path_unpackage/version.ini $DB:$path_target
+
 ssh $FE "mkdir -p $path_target"
 scp -r $path_unpackage/libs $FE:$path_target
 scp -r $path_unpackage/cfg $FE:$path_target
+scp -r $path_unpackage/version.ini $FE:$path_target
+
 ssh $DMZ "mkdir -p $path_target"
 scp -r $path_unpackage/libs $DMZ:$path_target
 scp -r $path_unpackage/cfg $DMZ:$path_target
+scp -r $path_unpackage/version.ini $DMZ:$path_target
+
+# TODO: Push metadata
 
 # TODO: For unpacking:
-# 	install rabbitmq and enable management, import defnitions
+# 	install rabbitmq and enable management
 #	ssh $DB 'sudo apt install rabbitmq-server'
 
 # Deploy DB scripts
