@@ -15,13 +15,14 @@
 	* Back End
 	* DMZ 
 ## Prerequisites
-
+### Front end
+* Apache
 ## Installation
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1NzE4NzI3NiwxOTQ3OTI2NDIwLC0xNj
-EwMTMwMTQwLC0zNzg2NDA2Ml19
+eyJoaXN0b3J5IjpbLTc1MDU4MDM5NSwxMjU3MTg3Mjc2LDE5ND
+c5MjY0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
 -->
