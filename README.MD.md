@@ -1,11 +1,10 @@
 
 # IT 490 JUKZ - Overwatch 
 ## Environment Structure
-1. First item  
-2. Second item  
-3. Third item  
+1. Deployment System 
+2. Development Environment
+3. Quality Assurance Environment
 4. Fourth item
-```
 ## Prerequisites
 
 ## Installation
@@ -14,6 +13,6 @@
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NDQ1MDc3MiwtMTYxMDEzMDE0MCwtMz
-c4NjQwNjJdfQ==
+eyJoaXN0b3J5IjpbOTA1ODYwNzA3LC0xNjEwMTMwMTQwLC0zNz
+g2NDA2Ml19
 -->
