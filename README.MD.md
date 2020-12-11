@@ -15,6 +15,7 @@
 	* Back End
 	* DMZ 
 ## Prerequisites
+### All Environment Machines
 
 ### Front end
 * Apache2
@@ -24,6 +25,6 @@
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4OTk1OTQ1MSwxMjU3MTg3Mjc2LDE5ND
-c5MjY0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
+eyJoaXN0b3J5IjpbLTEzNjEyNjg2MTAsMTI1NzE4NzI3NiwxOT
+Q3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
 -->
