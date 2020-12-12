@@ -46,7 +46,7 @@ Populate this configuration file with each machine's respective IP addresses in 
 
 ``unpack.sh`` will deploy a given tar package to the machines referenced in ``targets.ini``.
 This will create ``deployment/`` directories in each of the machines that contains:
-* cfg/``
+* ``cfg/`` contains 
 
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment`` folder in each of the machines referenced in ``targets.ini``
@@ -66,7 +66,7 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MjA0MTczOCw2NjQwMDE4MiwxODkzND
+eyJoaXN0b3J5IjpbLTQzMDk5MDEyMyw2NjQwMDE4MiwxODkzND
 UyMjA0LDEyMDcyNTAwNTAsLTM5ODExOTgzNywtNzMxMDAxNTMy
 LDMzODc2Mzc2NCwxNjkxNDI2MTczLC0xNzM4MDA3MTcxLC0zMj
 Y5MjM5OTMsMTM3NTQ4MTA4MywzNTM5MDgzODUsLTgwODI2NjYy
