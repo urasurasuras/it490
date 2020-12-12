@@ -22,13 +22,13 @@
 Prerequisites are packages that need to be installed before setup and deployment. All of these packages need to be installed on their respective machines using ``$ sudo apt install <package-name>``
 
 **All Environment Machines**
-php
-php-amqplib
-openssh-server
-[LogMeIn Hamachi](#hamachi-vpn)
+``php``
+``php-amqplib``
+``openssh-server``
+Any VPN, although the one we'll be using is [LogMeIn Hamachi](#hamachi-vpn) 
 
 **Front end**
-Apache2
+``apache2``
 
 **Back end**
 [Mysql Server](#mysql-server)
@@ -48,7 +48,7 @@ _No additional packages required_
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwODk2MzUwNCw0MzE4OTkyMCw4NTU5Nj
+eyJoaXN0b3J5IjpbMTgxNzg4ODkyOSw0MzE4OTkyMCw4NTU5Nj
 AxNSw5Mjg2NzY5OTcsMTExNTczNzA0MSw5MDEyOTQzMjEsMTQ4
 MDcxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2LDE5NDc5Mj
 Y0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
