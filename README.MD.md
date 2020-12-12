@@ -17,19 +17,20 @@
 ## Prerequisites
 ### All Environment Machines
 php
+SSH Server
 ### Front end
 * Apache2
 ### Back end
-* Mysql
+* Mysql Server
 * RabbitMQ
-### 
+### DMZ
 ## Installation
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMzU1OTk0LC0xMzYxMjY4NjEwLDEyNT
-cxODcyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQw
-NjJdfQ==
+eyJoaXN0b3J5IjpbMTUxOTU4MDU1OSwtMTM2MTI2ODYxMCwxMj
+U3MTg3Mjc2LDE5NDc5MjY0MjAsLTE2MTAxMzAxNDAsLTM3ODY0
+MDYyXX0=
 -->
