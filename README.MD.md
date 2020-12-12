@@ -43,6 +43,8 @@ Populate this configuration file with each machine's respective IP addresses in 
 
 ``packfromsource.sh`` will compile a tar package with the version number in the ``build`` folder.
 ``Usage ./packfromsource.sh -v [version number]``
+
+``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the ``deployment`` code from the machines referenced in ``targets.ini``
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
@@ -57,7 +59,7 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk3NTExNTI1LDE4OTM0NTIyMDQsMTIwNz
+eyJoaXN0b3J5IjpbNDg1OTgyNTM2LDE4OTM0NTIyMDQsMTIwNz
 I1MDA1MCwtMzk4MTE5ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0
 LDE2OTE0MjYxNzMsLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMz
 c1NDgxMDgzLDM1MzkwODM4NSwtODA4MjY2NjI4LC0yMDA4NTAw
