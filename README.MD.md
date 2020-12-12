@@ -31,7 +31,7 @@ Any VPN, although the one we'll be using is [LogMeIn Hamachi](#hamachi-vpn)
 ``apache2``
 
 **Back end**
-[Mysql Server](#mysql-server)
+[``mysql-server``](#mysql-server)
 [RabbitMQ](#rabbitmq)
 
 **DMZ**
@@ -48,7 +48,7 @@ _No additional packages required_
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNzg4ODkyOSw0MzE4OTkyMCw4NTU5Nj
+eyJoaXN0b3J5IjpbMTg0NTg5MTg5Miw0MzE4OTkyMCw4NTU5Nj
 AxNSw5Mjg2NzY5OTcsMTExNTczNzA0MSw5MDEyOTQzMjEsMTQ4
 MDcxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2LDE5NDc5Mj
 Y0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
