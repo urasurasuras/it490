@@ -1,5 +1,7 @@
 
 # IT 490 JUKZ - Overwatch 
+* [Features](#features)
+
 ## Environment Structure
 1. Deployment System 
 2. Development Environment
@@ -24,7 +26,7 @@ LogMeIn Hamachi
 * Apache2
 ### Back end
 * Mysql Server
-* [RabbitMQ](#Features)
+* [RabbitMQ](#all-environment-machines)
 ### DMZ
 ## Installation
 ## Features
@@ -32,8 +34,8 @@ LogMeIn Hamachi
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzAxNTc3NDAsMTExNTczNzA0MSw5MD
-EyOTQzMjEsMTQ4MDcxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3
-Mjc2LDE5NDc5MjY0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX
-0=
+eyJoaXN0b3J5IjpbMTkwNzM0Nzc4NywxMTE1NzM3MDQxLDkwMT
+I5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4NjEwLDEyNTcxODcy
+NzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQwNjJdfQ
+==
 -->
