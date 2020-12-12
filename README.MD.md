@@ -38,7 +38,7 @@ Any VPN, although we'll be using [LogMeIn Hamachi](#hamachi-vpn)
 _No additional packages required_
 
 ## Setup
-This section contains 
+This section contains steps about any additional configuration that needs to be done with some packages
 ### Hamachi VPN
 ### MySQL Server
 ### RabbitMQ
@@ -49,7 +49,7 @@ This section contains
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU1MDgxNDY5LDE4NDU4OTE4OTIsNDMxOD
+eyJoaXN0b3J5IjpbNzkyMzA3MTIzLDE4NDU4OTE4OTIsNDMxOD
 k5MjAsODU1OTYwMTUsOTI4Njc2OTk3LDExMTU3MzcwNDEsOTAx
 Mjk0MzIxLDE0ODA3MTQzOTksLTEzNjEyNjg2MTAsMTI1NzE4Nz
 I3NiwxOTQ3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
