@@ -16,15 +16,17 @@
 	* DMZ 
 ## Prerequisites
 ### All Environment Machines
-
+php
 ### Front end
 * Apache2
+* ### Database
 ## Installation
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjEyNjg2MTAsMTI1NzE4NzI3NiwxOT
-Q3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
+eyJoaXN0b3J5IjpbODM0ODQ4NjAyLC0xMzYxMjY4NjEwLDEyNT
+cxODcyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQw
+NjJdfQ==
 -->
