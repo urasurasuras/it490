@@ -17,9 +17,9 @@
 ## Prerequisites
 ### All Environment Machines
 php
-SSH Server
+php-amqplib
+openssh-server
 LogMeIn Hamachi
-php-amqp
 ### Front end
 * Apache2
 ### Back end
@@ -32,7 +32,7 @@ php-amqp
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAxMjk0MzIxLDE0ODA3MTQzOTksLTEzNj
-EyNjg2MTAsMTI1NzE4NzI3NiwxOTQ3OTI2NDIwLC0xNjEwMTMw
-MTQwLC0zNzg2NDA2Ml19
+eyJoaXN0b3J5IjpbMTExNTczNzA0MSw5MDEyOTQzMjEsMTQ4MD
+cxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2LDE5NDc5MjY0
+MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
 -->
