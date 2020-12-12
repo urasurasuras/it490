@@ -27,19 +27,20 @@ LogMeIn Hamachi
 ### Front end
 Apache2
 ### Back end
-Mysql Server
-[RabbitMQ](#all-environment-machines)
+[Mysql Server](#mysql-server)
+[RabbitMQ](#rabbitmq)
 ### DMZ
 ## Setup
-### 
+### MySQL Server
+### RabbitMQ
 ## Deployment
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUyNjE2NzM5LDkyODY3Njk5NywxMTE1Nz
-M3MDQxLDkwMTI5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4NjEw
-LDEyNTcxODcyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMz
-c4NjQwNjJdfQ==
+eyJoaXN0b3J5IjpbMTc3ODM1NTI2Nyw5Mjg2NzY5OTcsMTExNT
+czNzA0MSw5MDEyOTQzMjEsMTQ4MDcxNDM5OSwtMTM2MTI2ODYx
+MCwxMjU3MTg3Mjc2LDE5NDc5MjY0MjAsLTE2MTAxMzAxNDAsLT
+M3ODY0MDYyXX0=
 -->
