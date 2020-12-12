@@ -19,16 +19,17 @@
 ## Setup
 
 ### Prerequisites
+Prerequisites are packages that need to be installed before setup and deployment
 #### All Environment Machines
 php
 php-amqplib
 openssh-server
 LogMeIn Hamachi
 #### Front end
-* Apache2
+Apache2
 #### Back end
-* Mysql Server
-* [RabbitMQ](#all-environment-machines)
+Mysql Server
+[RabbitMQ](#all-environment-machines)
 #### DMZ
 
 ## Deployment
@@ -37,8 +38,7 @@ LogMeIn Hamachi
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyMzk2MjU4MiwxMTE1NzM3MDQxLDkwMT
-I5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4NjEwLDEyNTcxODcy
-NzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQwNjJdfQ
-==
+eyJoaXN0b3J5IjpbOTI4Njc2OTk3LDExMTU3MzcwNDEsOTAxMj
+k0MzIxLDE0ODA3MTQzOTksLTEzNjEyNjg2MTAsMTI1NzE4NzI3
+NiwxOTQ3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
 -->
