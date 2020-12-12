@@ -40,7 +40,7 @@ _No additional packages required_
 Clone the source code [repository](https://github.com/urasurasuras/it490)
 ``targets.ini`` will have destination IP addresses for each machine.
 Populate this configuration file with each machine's respective IP addresses in your virtual private network.
-``packfromsource.sh``
+``packfromsource.sh`` will compile a tar package
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
@@ -55,11 +55,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5ODExOTgzNywtNzMxMDAxNTMyLDMzOD
-c2Mzc2NCwxNjkxNDI2MTczLC0xNzM4MDA3MTcxLC0zMjY5MjM5
-OTMsMTM3NTQ4MTA4MywzNTM5MDgzODUsLTgwODI2NjYyOCwtMj
-AwODUwMDUzMCwxNTIzNDgzODMsMjAxMjk2Mjc3NCwxMzAwMjYx
-NzcwLDYyMjUyMDY2MCwxODQ1ODkxODkyLDQzMTg5OTIwLDg1NT
-k2MDE1LDkyODY3Njk5NywxMTE1NzM3MDQxLDkwMTI5NDMyMV19
-
+eyJoaXN0b3J5IjpbMTIwNzI1MDA1MCwtMzk4MTE5ODM3LC03Mz
+EwMDE1MzIsMzM4NzYzNzY0LDE2OTE0MjYxNzMsLTE3MzgwMDcx
+NzEsLTMyNjkyMzk5MywxMzc1NDgxMDgzLDM1MzkwODM4NSwtOD
+A4MjY2NjI4LC0yMDA4NTAwNTMwLDE1MjM0ODM4MywyMDEyOTYy
+Nzc0LDEzMDAyNjE3NzAsNjIyNTIwNjYwLDE4NDU4OTE4OTIsND
+MxODk5MjAsODU1OTYwMTUsOTI4Njc2OTk3LDExMTU3MzcwNDFd
+fQ==
 -->
