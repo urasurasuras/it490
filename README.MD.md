@@ -16,6 +16,8 @@
 	* Front End
 	* Back End
 	* DMZ 
+## Setup
+
 ## Prerequisites
 ### All Environment Machines
 php
@@ -28,13 +30,14 @@ LogMeIn Hamachi
 * Mysql Server
 * [RabbitMQ](#all-environment-machines)
 ### DMZ
-## Installation
+
+## Deployment
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNzM0Nzc4NywxMTE1NzM3MDQxLDkwMT
+eyJoaXN0b3J5IjpbLTEwMTMwNDc2MywxMTE1NzM3MDQxLDkwMT
 I5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4NjEwLDEyNTcxODcy
 NzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQwNjJdfQ
 ==
