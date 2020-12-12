@@ -19,6 +19,7 @@
 php
 SSH Server
 LogMeIn Hamachi
+php-amqp
 ### Front end
 * Apache2
 ### Back end
@@ -31,7 +32,7 @@ LogMeIn Hamachi
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4MDcxNDM5OSwtMTM2MTI2ODYxMCwxMj
-U3MTg3Mjc2LDE5NDc5MjY0MjAsLTE2MTAxMzAxNDAsLTM3ODY0
-MDYyXX0=
+eyJoaXN0b3J5IjpbOTAxMjk0MzIxLDE0ODA3MTQzOTksLTEzNj
+EyNjg2MTAsMTI1NzE4NzI3NiwxOTQ3OTI2NDIwLC0xNjEwMTMw
+MTQwLC0zNzg2NDA2Ml19
 -->
