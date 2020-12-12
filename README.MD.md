@@ -38,6 +38,8 @@ Any VPN, although we'll be using [LogMeIn Hamachi](#hamachi-vpn)
 _No additional packages required_
 ## Source Code Setup
 Clone the source code [repository](https://github.com/urasurasuras/it490)
+``targets.ini`` will have destination IP addresses for each machine.
+
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
@@ -52,11 +54,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMz
-c1NDgxMDgzLDM1MzkwODM4NSwtODA4MjY2NjI4LC0yMDA4NTAw
-NTMwLDE1MjM0ODM4MywyMDEyOTYyNzc0LDEzMDAyNjE3NzAsNj
-IyNTIwNjYwLDE4NDU4OTE4OTIsNDMxODk5MjAsODU1OTYwMTUs
-OTI4Njc2OTk3LDExMTU3MzcwNDEsOTAxMjk0MzIxLDE0ODA3MT
-QzOTksLTEzNjEyNjg2MTAsMTI1NzE4NzI3NiwxOTQ3OTI2NDIw
+eyJoaXN0b3J5IjpbMTY5MTQyNjE3MywtMTczODAwNzE3MSwtMz
+I2OTIzOTkzLDEzNzU0ODEwODMsMzUzOTA4Mzg1LC04MDgyNjY2
+MjgsLTIwMDg1MDA1MzAsMTUyMzQ4MzgzLDIwMTI5NjI3NzQsMT
+MwMDI2MTc3MCw2MjI1MjA2NjAsMTg0NTg5MTg5Miw0MzE4OTky
+MCw4NTU5NjAxNSw5Mjg2NzY5OTcsMTExNTczNzA0MSw5MDEyOT
+QzMjEsMTQ4MDcxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2
 XX0=
 -->
