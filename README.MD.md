@@ -12,7 +12,9 @@
 	* DMZ 
 5. Production Environment
 	* Front End
+		* Failover
 	* Back End
+		* Failover
 	* DMZ 
 
 ## Prerequisites
@@ -39,8 +41,8 @@ Apache2
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDMxODk5MjAsODU1OTYwMTUsOTI4Njc2OT
-k3LDExMTU3MzcwNDEsOTAxMjk0MzIxLDE0ODA3MTQzOTksLTEz
-NjEyNjg2MTAsMTI1NzE4NzI3NiwxOTQ3OTI2NDIwLC0xNjEwMT
-MwMTQwLC0zNzg2NDA2Ml19
+eyJoaXN0b3J5IjpbOTE1MjY1MzMyLDQzMTg5OTIwLDg1NTk2MD
+E1LDkyODY3Njk5NywxMTE1NzM3MDQxLDkwMTI5NDMyMSwxNDgw
+NzE0Mzk5LC0xMzYxMjY4NjEwLDEyNTcxODcyNzYsMTk0NzkyNj
+QyMCwtMTYxMDEzMDE0MCwtMzc4NjQwNjJdfQ==
 -->
