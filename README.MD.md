@@ -28,7 +28,7 @@ Prerequisites are packages that need to be installed before setup and deployment
 Any VPN, although we'll be using [LogMeIn Hamachi](#hamachi-vpn) 
 
 **Front end**
-``apache2``
+[``apache2``](#apache-web-server)
 
 **Back end**
 [``mysql-server``](#mysql-server)
@@ -38,9 +38,9 @@ Any VPN, although we'll be using [LogMeIn Hamachi](#hamachi-vpn)
 _No additional packages required_
 
 ## Setup
-This section contains steps about any additional configuration that needs to be done with some packages
+This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
-### Apache We
+### Apache Web Server
 ### RabbitMQ
 ### 
 ## Deployment
@@ -49,9 +49,9 @@ This section contains steps about any additional configuration that needs to be 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyMDU4MDEwNCwxODQ1ODkxODkyLDQzMT
-g5OTIwLDg1NTk2MDE1LDkyODY3Njk5NywxMTE1NzM3MDQxLDkw
-MTI5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4NjEwLDEyNTcxOD
-cyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQwNjJd
-fQ==
+eyJoaXN0b3J5IjpbNjIyNTIwNjYwLDE4NDU4OTE4OTIsNDMxOD
+k5MjAsODU1OTYwMTUsOTI4Njc2OTk3LDExMTU3MzcwNDEsOTAx
+Mjk0MzIxLDE0ODA3MTQzOTksLTEzNjEyNjg2MTAsMTI1NzE4Nz
+I3NiwxOTQ3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
+
 -->
