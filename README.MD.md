@@ -16,29 +16,30 @@
 	* Front End
 	* Back End
 	* DMZ 
-## Setup
 
-### Prerequisites
-Prerequisites are packages that need to be installed before setup and deployment
-#### All Environment Machines
+## Prerequisites
+Prerequisites are packages that need to be installed before setup and deployment. 
+### All Environment Machines
 php
 php-amqplib
 openssh-server
 LogMeIn Hamachi
-#### Front end
+### Front end
 Apache2
-#### Back end
+### Back end
 Mysql Server
 [RabbitMQ](#all-environment-machines)
-#### DMZ
-
+### DMZ
+## Setup
+### 
 ## Deployment
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI4Njc2OTk3LDExMTU3MzcwNDEsOTAxMj
-k0MzIxLDE0ODA3MTQzOTksLTEzNjEyNjg2MTAsMTI1NzE4NzI3
-NiwxOTQ3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
+eyJoaXN0b3J5IjpbNjUyNjE2NzM5LDkyODY3Njk5NywxMTE1Nz
+M3MDQxLDkwMTI5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4NjEw
+LDEyNTcxODcyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMz
+c4NjQwNjJdfQ==
 -->
