@@ -19,8 +19,8 @@
 		* Failover
 
 ## Prerequisites
-Prerequisites are packages that need to be installed before setup and deployment. 
-### All Environment Machines
+Prerequisites are packages that need to be installed before setup and deployment. All of these packages need to be installed on their respective machines using ``$ sudo apt install <package-name>``
+**All Environment Machines**
 php
 php-amqplib
 openssh-server
@@ -42,8 +42,8 @@ Apache2
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzA5NDIyNzQsNDMxODk5MjAsODU1OT
-YwMTUsOTI4Njc2OTk3LDExMTU3MzcwNDEsOTAxMjk0MzIxLDE0
-ODA3MTQzOTksLTEzNjEyNjg2MTAsMTI1NzE4NzI3NiwxOTQ3OT
-I2NDIwLC0xNjEwMTMwMTQwLC0zNzg2NDA2Ml19
+eyJoaXN0b3J5IjpbLTQ2NTI1NTU2NSw0MzE4OTkyMCw4NTU5Nj
+AxNSw5Mjg2NzY5OTcsMTExNTczNzA0MSw5MDEyOTQzMjEsMTQ4
+MDcxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2LDE5NDc5Mj
+Y0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
 -->
