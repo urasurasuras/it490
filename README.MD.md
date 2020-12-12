@@ -40,7 +40,7 @@ _No additional packages required_
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
-Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* virtual
+Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machines. 
 ### Apache Web Server
 ### RabbitMQ
 ### 
@@ -50,7 +50,7 @@ Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* virtual
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgxNDgwNDkwLDYyMjUyMDY2MCwxODQ1OD
+eyJoaXN0b3J5IjpbNjQ5NDMyODg3LDYyMjUyMDY2MCwxODQ1OD
 kxODkyLDQzMTg5OTIwLDg1NTk2MDE1LDkyODY3Njk5NywxMTE1
 NzM3MDQxLDkwMTI5NDMyMSwxNDgwNzE0Mzk5LC0xMzYxMjY4Nj
 EwLDEyNTcxODcyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwt
