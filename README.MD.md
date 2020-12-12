@@ -1,7 +1,5 @@
 
 # IT 490 JUKZ - Overwatch 
-* [Features](#features)
-
 ## Environment Structure
 1. Deployment System 
 2. Development Environment
@@ -39,8 +37,8 @@ Apache2
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3ODM1NTI2Nyw5Mjg2NzY5OTcsMTExNT
-czNzA0MSw5MDEyOTQzMjEsMTQ4MDcxNDM5OSwtMTM2MTI2ODYx
-MCwxMjU3MTg3Mjc2LDE5NDc5MjY0MjAsLTE2MTAxMzAxNDAsLT
-M3ODY0MDYyXX0=
+eyJoaXN0b3J5IjpbODU1OTYwMTUsOTI4Njc2OTk3LDExMTU3Mz
+cwNDEsOTAxMjk0MzIxLDE0ODA3MTQzOTksLTEzNjEyNjg2MTAs
+MTI1NzE4NzI3NiwxOTQ3OTI2NDIwLC0xNjEwMTMwMTQwLC0zNz
+g2NDA2Ml19
 -->
