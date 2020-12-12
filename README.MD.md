@@ -19,14 +19,17 @@
 php
 ### Front end
 * Apache2
-* ### Database
+### Back end
+* Mysql
+* RabbitMQ
+### 
 ## Installation
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM0ODQ4NjAyLC0xMzYxMjY4NjEwLDEyNT
+eyJoaXN0b3J5IjpbLTcxMzU1OTk0LC0xMzYxMjY4NjEwLDEyNT
 cxODcyNzYsMTk0NzkyNjQyMCwtMTYxMDEzMDE0MCwtMzc4NjQw
 NjJdfQ==
 -->
