@@ -40,7 +40,7 @@ _No additional packages required_
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
-Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machines. Since Hamachi allows only allows 5 clients per network, each environment will have their own network that will also include the deployment machine 
+Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machines. Since Hamachi allows only allows 5 clients per network, each environment will have their own network that will also include the deployment machine on each of those networks. 
 ### Apache Web Server
 ### RabbitMQ
 ### 
@@ -50,9 +50,10 @@ Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machine
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMzQ4MzgzLDIwMTI5NjI3NzQsMTMwMD
-I2MTc3MCw2MjI1MjA2NjAsMTg0NTg5MTg5Miw0MzE4OTkyMCw4
-NTU5NjAxNSw5Mjg2NzY5OTcsMTExNTczNzA0MSw5MDEyOTQzMj
-EsMTQ4MDcxNDM5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2LDE5
-NDc5MjY0MjAsLTE2MTAxMzAxNDAsLTM3ODY0MDYyXX0=
+eyJoaXN0b3J5IjpbLTIwMDg1MDA1MzAsMTUyMzQ4MzgzLDIwMT
+I5NjI3NzQsMTMwMDI2MTc3MCw2MjI1MjA2NjAsMTg0NTg5MTg5
+Miw0MzE4OTkyMCw4NTU5NjAxNSw5Mjg2NzY5OTcsMTExNTczNz
+A0MSw5MDEyOTQzMjEsMTQ4MDcxNDM5OSwtMTM2MTI2ODYxMCwx
+MjU3MTg3Mjc2LDE5NDc5MjY0MjAsLTE2MTAxMzAxNDAsLTM3OD
+Y0MDYyXX0=
 -->
