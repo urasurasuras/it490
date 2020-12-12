@@ -36,7 +36,8 @@ Any VPN, although we'll be using [LogMeIn Hamachi](#hamachi-vpn)
 
 **DMZ**
 _No additional packages required_
-## Srouc
+## Source Code Setup
+Clone the source code [repository](https://github.com/urasurasuras/it490)
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
 ### Hamachi VPN
@@ -51,11 +52,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczMjY4ODU3MSwtMzI2OTIzOTkzLDEzNz
-U0ODEwODMsMzUzOTA4Mzg1LC04MDgyNjY2MjgsLTIwMDg1MDA1
-MzAsMTUyMzQ4MzgzLDIwMTI5NjI3NzQsMTMwMDI2MTc3MCw2Mj
-I1MjA2NjAsMTg0NTg5MTg5Miw0MzE4OTkyMCw4NTU5NjAxNSw5
-Mjg2NzY5OTcsMTExNTczNzA0MSw5MDEyOTQzMjEsMTQ4MDcxND
-M5OSwtMTM2MTI2ODYxMCwxMjU3MTg3Mjc2LDE5NDc5MjY0MjBd
-fQ==
+eyJoaXN0b3J5IjpbLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMz
+c1NDgxMDgzLDM1MzkwODM4NSwtODA4MjY2NjI4LC0yMDA4NTAw
+NTMwLDE1MjM0ODM4MywyMDEyOTYyNzc0LDEzMDAyNjE3NzAsNj
+IyNTIwNjYwLDE4NDU4OTE4OTIsNDMxODk5MjAsODU1OTYwMTUs
+OTI4Njc2OTk3LDExMTU3MzcwNDEsOTAxMjk0MzIxLDE0ODA3MT
+QzOTksLTEzNjEyNjg2MTAsMTI1NzE4NzI3NiwxOTQ3OTI2NDIw
+XX0=
 -->
