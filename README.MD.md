@@ -48,7 +48,8 @@ Populate this configuration file with each machine's respective IP addresses in 
 This will create ``deployment/`` directories in each of the machines that contains:
 * ``cfg/`` contains ``.ini`` files for various configurations
 * ``libs/`` contains all common libraries used by the scripts
-* ``client/`` contains all the 
+* ``client/`` contains all the Front End scripts prefixed with ``FE_*.php``
+* 
 
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment`` folder in each of the machines referenced in ``targets.ini``
@@ -68,11 +69,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ1NzI3MDAwLC0xMjU3MzExOTgzLC02ND
-AxOTM3OTEsMTkyNjc1NjEwNywtNDMwOTkwMTIzLDY2NDAwMTgy
-LDE4OTM0NTIyMDQsMTIwNzI1MDA1MCwtMzk4MTE5ODM3LC03Mz
-EwMDE1MzIsMzM4NzYzNzY0LDE2OTE0MjYxNzMsLTE3MzgwMDcx
-NzEsLTMyNjkyMzk5MywxMzc1NDgxMDgzLDM1MzkwODM4NSwtOD
-A4MjY2NjI4LC0yMDA4NTAwNTMwLDE1MjM0ODM4MywyMDEyOTYy
-Nzc0XX0=
+eyJoaXN0b3J5IjpbMTExODQ0MDg5MywyNDU3MjcwMDAsLTEyNT
+czMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2MTA3LC00MzA5OTAx
+MjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMjA3MjUwMDUwLC0zOT
+gxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3NjQsMTY5MTQyNjE3
+MywtMTczODAwNzE3MSwtMzI2OTIzOTkzLDEzNzU0ODEwODMsMz
+UzOTA4Mzg1LC04MDgyNjY2MjgsLTIwMDg1MDA1MzAsMTUyMzQ4
+MzgzXX0=
 -->
