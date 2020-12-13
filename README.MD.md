@@ -46,7 +46,8 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 ### RabbitMQ
 Enable the management plugin, the definitions will be imported during deployment
 ### MySQL Server
-After deployment, run the ``DB_CreateDB_Script.php``
+``CREATE USER  'test'@'localhost' IDENTIFIED BY 'password';``
+After deployment, run the ``DB_CreateDB_Script.php`` script in order to create the database 
 ## Deployment
 Clone the source code [repository](https://github.com/urasurasuras/it490)
 ``targets.ini`` will have destination IP addresses for each machine.
@@ -79,7 +80,7 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTYwMjYwOTksMTMxMzM2ODE2MywtMT
+eyJoaXN0b3J5IjpbLTE4NTI2Nzk1NzgsMTMxMzM2ODE2MywtMT
 YzMDg5MjkxMSwxMDU2ODYxODgzLC03NzQ5NjM2NDIsLTExMDYw
 NzA2ODgsMTQ1NjIwNDAyNywyNDU3MjcwMDAsLTEyNTczMTE5OD
 MsLTY0MDE5Mzc5MSwxOTI2NzU2MTA3LC00MzA5OTAxMjMsNjY0
