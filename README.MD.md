@@ -36,6 +36,15 @@ Any VPN with static IP should be fine, although we'll be using [LogMeIn Hamachi]
 
 **DMZ**
 _No additional packages required_
+
+## Setup
+This section contains steps about any additional configuration that needs to be done with some packages.
+### Hamachi VPN
+Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machines. Since Hamachi allows only allows 5 clients per network, each environment will have their own network that will also include the deployment machine on each of those networks. 
+### Apache Web Server
+The web page will be deployed into ``/var/www/front_end`` when the deployment script runs. A respective ``.conf`` will need to be set up and pointed to the web page folder.
+### RabbitMQ
+### 
 ## Source Code Setup
 Clone the source code [repository](https://github.com/urasurasuras/it490)
 ``targets.ini`` will have destination IP addresses for each machine.
@@ -60,25 +69,19 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 ``uninstall.sh`` will remove the ``deployment/`` folder on each machine referenced in ``targets.ini``. All other configurations such as RabbitMQ definitions, Apache configurations, and the webpage itself will remain.
 
-## Setup
-This section contains steps about any additional configuration that needs to be done with some packages.
-### Hamachi VPN
-Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machines. Since Hamachi allows only allows 5 clients per network, each environment will have their own network that will also include the deployment machine on each of those networks. 
-### Apache Web Server
-The web page will be deployed into ``/var/www/front_end`` when the deployment script runs. A respective ``.conf`` will need to be set up and pointed to the web page folder.
-### RabbitMQ
-### 
+
+
 ## Deployment
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzA4OTI5MTEsMTA1Njg2MTg4MywtNz
-c0OTYzNjQyLC0xMTA2MDcwNjg4LDE0NTYyMDQwMjcsMjQ1NzI3
-MDAwLC0xMjU3MzExOTgzLC02NDAxOTM3OTEsMTkyNjc1NjEwNy
-wtNDMwOTkwMTIzLDY2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNzI1
-MDA1MCwtMzk4MTE5ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0LD
-E2OTE0MjYxNzMsLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMzc1
-NDgxMDgzXX0=
+eyJoaXN0b3J5IjpbLTM2MTE0NzYwMywtMTYzMDg5MjkxMSwxMD
+U2ODYxODgzLC03NzQ5NjM2NDIsLTExMDYwNzA2ODgsMTQ1NjIw
+NDAyNywyNDU3MjcwMDAsLTEyNTczMTE5ODMsLTY0MDE5Mzc5MS
+wxOTI2NzU2MTA3LC00MzA5OTAxMjMsNjY0MDAxODIsMTg5MzQ1
+MjIwNCwxMjA3MjUwMDUwLC0zOTgxMTk4MzcsLTczMTAwMTUzMi
+wzMzg3NjM3NjQsMTY5MTQyNjE3MywtMTczODAwNzE3MSwtMzI2
+OTIzOTkzXX0=
 -->
