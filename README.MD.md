@@ -25,7 +25,7 @@ Prerequisites are packages that need to be installed before setup and deployment
 ``php``
 ``php-amqplib``
 ``openssh-server``
-Any VPN, although we'll be using [LogMeIn Hamachi](#hamachi-vpn) 
+Any VPN with static IP should be fine, although we'll be using [LogMeIn Hamachi](#hamachi-vpn) 
 
 **Front end**
 [``apache2``](#apache-web-server)
@@ -73,11 +73,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3NDk2MzY0MiwtMTEwNjA3MDY4OCwxND
-U2MjA0MDI3LDI0NTcyNzAwMCwtMTI1NzMxMTk4MywtNjQwMTkz
-NzkxLDE5MjY3NTYxMDcsLTQzMDk5MDEyMyw2NjQwMDE4MiwxOD
-kzNDUyMjA0LDEyMDcyNTAwNTAsLTM5ODExOTgzNywtNzMxMDAx
-NTMyLDMzODc2Mzc2NCwxNjkxNDI2MTczLC0xNzM4MDA3MTcxLC
-0zMjY5MjM5OTMsMTM3NTQ4MTA4MywzNTM5MDgzODUsLTgwODI2
-NjYyOF19
+eyJoaXN0b3J5IjpbMTA1Njg2MTg4MywtNzc0OTYzNjQyLC0xMT
+A2MDcwNjg4LDE0NTYyMDQwMjcsMjQ1NzI3MDAwLC0xMjU3MzEx
+OTgzLC02NDAxOTM3OTEsMTkyNjc1NjEwNywtNDMwOTkwMTIzLD
+Y2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNzI1MDA1MCwtMzk4MTE5
+ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0LDE2OTE0MjYxNzMsLT
+E3MzgwMDcxNzEsLTMyNjkyMzk5MywxMzc1NDgxMDgzLDM1Mzkw
+ODM4NV19
 -->
