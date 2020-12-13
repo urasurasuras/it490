@@ -44,8 +44,9 @@ Install the latest [Hamachi](https://www.vpn.net/linux) package on *all* machine
 ### Apache Web Server
 The web page will be deployed into ``/var/www/front_end`` when the deployment script runs. A respective ``.conf`` will need to be set up and pointed to the web page folder.
 ### RabbitMQ
-### 
-## Source Code Setup
+### MySQL Server
+
+## Deployment
 Clone the source code [repository](https://github.com/urasurasuras/it490)
 ``targets.ini`` will have destination IP addresses for each machine.
 Populate this configuration file with each machine's respective IP addresses in your virtual private network.
@@ -71,13 +72,13 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 
 
-## Deployment
+
 ## Features
 
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MTE0NzYwMywtMTYzMDg5MjkxMSwxMD
+eyJoaXN0b3J5IjpbMTMxMzM2ODE2MywtMTYzMDg5MjkxMSwxMD
 U2ODYxODgzLC03NzQ5NjM2NDIsLTExMDYwNzA2ODgsMTQ1NjIw
 NDAyNywyNDU3MjcwMDAsLTEyNTczMTE5ODMsLTY0MDE5Mzc5MS
 wxOTI2NzU2MTA3LC00MzA5OTAxMjMsNjY0MDAxODIsMTg5MzQ1
