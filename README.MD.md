@@ -57,6 +57,8 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment`` folder in each of the machines referenced in ``targets.ini``
 
+``uninstall.sh`` will remove everything 
+
 
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
@@ -72,7 +74,7 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTQyMTU3NTksMTQ1NjIwNDAyNywyND
+eyJoaXN0b3J5IjpbLTIwNzA3MjU3MzksMTQ1NjIwNDAyNywyND
 U3MjcwMDAsLTEyNTczMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2
 MTA3LC00MzA5OTAxMjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMj
 A3MjUwMDUwLC0zOTgxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3
