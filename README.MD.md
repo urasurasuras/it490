@@ -76,19 +76,12 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 ``uninstall.sh`` will remove the ``deployment/`` folder on each machine referenced in ``targets.ini``. All other configurations such as RabbitMQ definitions, Apache configurations, and the webpage itself will remain.
 
-
-
-
-## Features
-
-
-> Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk2Nzg4NTMzLC0zMzE4NDgzNjksMTMxMz
-M2ODE2MywtMTYzMDg5MjkxMSwxMDU2ODYxODgzLC03NzQ5NjM2
-NDIsLTExMDYwNzA2ODgsMTQ1NjIwNDAyNywyNDU3MjcwMDAsLT
-EyNTczMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2MTA3LC00MzA5
-OTAxMjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMjA3MjUwMDUwLC
-0zOTgxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3NjQsMTY5MTQy
-NjE3M119
+eyJoaXN0b3J5IjpbMTA2NTEwODA5OCwtMzMxODQ4MzY5LDEzMT
+MzNjgxNjMsLTE2MzA4OTI5MTEsMTA1Njg2MTg4MywtNzc0OTYz
+NjQyLC0xMTA2MDcwNjg4LDE0NTYyMDQwMjcsMjQ1NzI3MDAwLC
+0xMjU3MzExOTgzLC02NDAxOTM3OTEsMTkyNjc1NjEwNywtNDMw
+OTkwMTIzLDY2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNzI1MDA1MC
+wtMzk4MTE5ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0LDE2OTE0
+MjYxNzNdfQ==
 -->
