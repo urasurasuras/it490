@@ -51,7 +51,7 @@ Set up the default super user:
 ``mysql> GRANT ALL PRIVILEGES ON * . * TO 'testuser'@'localhost';``
 ``mysql> FLUSH PRIVILEGES;``
 
-After deployment, run the ``DB_CreateDB_Script.php`` script in order to create the database 
+After deployment, run the ``DB_CreateDB_Script.php`` script in order to create the database and tables.
 ## Deployment
 Clone the source code [repository](https://github.com/urasurasuras/it490)
 ``targets.ini`` will have destination IP addresses for each machine.
@@ -84,11 +84,11 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzMTg0ODM2OSwxMzEzMzY4MTYzLC0xNj
-MwODkyOTExLDEwNTY4NjE4ODMsLTc3NDk2MzY0MiwtMTEwNjA3
-MDY4OCwxNDU2MjA0MDI3LDI0NTcyNzAwMCwtMTI1NzMxMTk4My
-wtNjQwMTkzNzkxLDE5MjY3NTYxMDcsLTQzMDk5MDEyMyw2NjQw
-MDE4MiwxODkzNDUyMjA0LDEyMDcyNTAwNTAsLTM5ODExOTgzNy
-wtNzMxMDAxNTMyLDMzODc2Mzc2NCwxNjkxNDI2MTczLC0xNzM4
-MDA3MTcxXX0=
+eyJoaXN0b3J5IjpbNjk2Nzg4NTMzLC0zMzE4NDgzNjksMTMxMz
+M2ODE2MywtMTYzMDg5MjkxMSwxMDU2ODYxODgzLC03NzQ5NjM2
+NDIsLTExMDYwNzA2ODgsMTQ1NjIwNDAyNywyNDU3MjcwMDAsLT
+EyNTczMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2MTA3LC00MzA5
+OTAxMjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMjA3MjUwMDUwLC
+0zOTgxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3NjQsMTY5MTQy
+NjE3M119
 -->
