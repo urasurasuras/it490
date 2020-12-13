@@ -48,7 +48,7 @@ Populate this configuration file with each machine's respective IP addresses in 
 This will create ``deployment/`` directories in each of the machines that contains:
 * ``cfg/`` contains ``.ini`` files for various configurations
 * ``libs/`` contains all common libraries used by the scripts
-* ``client/`` contains all the Front End scripts prefixed with ``FE_*.php``
+* ``client/`` contains all the Front End scripts prefixed with ``FrontEnd_*.php``
 * ``database/`` contains all the Database scripts prefixed with  ``DB_*.php``
 * ``datasource/`` contains all the DMZ scripts prefixed with ``DMZ_*.php``
 * ``front_end/`` is the folder that contains the web page (this folder will be placed into ``/var/www/`` as is, therefore it needs to be configured for Apache with that folder name as an enabled site)
@@ -57,7 +57,7 @@ This will create ``deployment/`` directories in each of the machines that contai
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment/`` folder in each of the machines referenced in ``targets.ini``
 
-``uninstall.sh`` will remove the ``deployment/`` folder on each machine referenced in ``targets.ini``. All other configurations such as 
+``uninstall.sh`` will remove the ``deployment/`` folder on each machine referenced in ``targets.ini``. All other configurations such as RabbitMQ definitions, Apache configurations, and the webpage itself.
 
 ## Setup
 This section contains steps about any additional configuration that needs to be done with some packages.
@@ -73,7 +73,7 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDYwNDkwOTIsMTQ1NjIwNDAyNywyND
+eyJoaXN0b3J5IjpbLTExMDYwNzA2ODgsMTQ1NjIwNDAyNywyND
 U3MjcwMDAsLTEyNTczMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2
 MTA3LC00MzA5OTAxMjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMj
 A3MjUwMDUwLC0zOTgxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3
