@@ -51,7 +51,8 @@ This will create ``deployment/`` directories in each of the machines that contai
 * ``client/`` contains all the Front End scripts prefixed with ``FE_*.php``
 * ``database/`` contains all the Database scripts prefixed with  ``DB_*.php``
 * ``datasource/`` contains all the DMZ scripts prefixed with ``DMZ_*.php``
-* ``front_end/`` is the folder that contains the web page (this folder will be placed into ``/var/www/`` as is, so when it is deployed it 
+* ``front_end/`` is the folder that contains the web page (this folder will be placed into ``/var/www/`` as is, therefore it needs to be configured for Apache with that folder name as an enabled site)
+* ``version.ini.
 
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment`` folder in each of the machines referenced in ``targets.ini``
@@ -71,11 +72,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5ODAxODIyNiwxNDU2MjA0MDI3LDI0NT
-cyNzAwMCwtMTI1NzMxMTk4MywtNjQwMTkzNzkxLDE5MjY3NTYx
-MDcsLTQzMDk5MDEyMyw2NjQwMDE4MiwxODkzNDUyMjA0LDEyMD
-cyNTAwNTAsLTM5ODExOTgzNywtNzMxMDAxNTMyLDMzODc2Mzc2
-NCwxNjkxNDI2MTczLC0xNzM4MDA3MTcxLC0zMjY5MjM5OTMsMT
-M3NTQ4MTA4MywzNTM5MDgzODUsLTgwODI2NjYyOCwtMjAwODUw
-MDUzMF19
+eyJoaXN0b3J5IjpbNDc3NTA1OTA1LDE0NTYyMDQwMjcsMjQ1Nz
+I3MDAwLC0xMjU3MzExOTgzLC02NDAxOTM3OTEsMTkyNjc1NjEw
+NywtNDMwOTkwMTIzLDY2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNz
+I1MDA1MCwtMzk4MTE5ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0
+LDE2OTE0MjYxNzMsLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMz
+c1NDgxMDgzLDM1MzkwODM4NSwtODA4MjY2NjI4LC0yMDA4NTAw
+NTMwXX0=
 -->
