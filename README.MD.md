@@ -49,7 +49,8 @@ This will create ``deployment/`` directories in each of the machines that contai
 * ``cfg/`` contains ``.ini`` files for various configurations
 * ``libs/`` contains all common libraries used by the scripts
 * ``client/`` contains all the Front End scripts prefixed with ``FrontEnd_*.php``
-* ``database/`` contains all the Database scripts prefixed with  ``DB_*.php``
+* ``database/`` contains all the Database scripts prefixed with  ``DB_*.php`` and ``rabbit.definitions.json`` that will be imported to [``RabbitMQ``](#rabbitmq)
+
 * ``datasource/`` contains all the DMZ scripts prefixed with ``DMZ_*.php``
 * ``front_end/`` is the folder that contains the web page (this folder will be placed into ``/var/www/`` as is, therefore it needs to be configured for Apache with that folder name as an enabled site)
 * ``version.ini`` contains metadata about the package
@@ -73,11 +74,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1Njg2MTg4MywtNzc0OTYzNjQyLC0xMT
-A2MDcwNjg4LDE0NTYyMDQwMjcsMjQ1NzI3MDAwLC0xMjU3MzEx
-OTgzLC02NDAxOTM3OTEsMTkyNjc1NjEwNywtNDMwOTkwMTIzLD
-Y2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNzI1MDA1MCwtMzk4MTE5
-ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0LDE2OTE0MjYxNzMsLT
-E3MzgwMDcxNzEsLTMyNjkyMzk5MywxMzc1NDgxMDgzLDM1Mzkw
-ODM4NV19
+eyJoaXN0b3J5IjpbLTE2MzA4OTI5MTEsMTA1Njg2MTg4MywtNz
+c0OTYzNjQyLC0xMTA2MDcwNjg4LDE0NTYyMDQwMjcsMjQ1NzI3
+MDAwLC0xMjU3MzExOTgzLC02NDAxOTM3OTEsMTkyNjc1NjEwNy
+wtNDMwOTkwMTIzLDY2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNzI1
+MDA1MCwtMzk4MTE5ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0LD
+E2OTE0MjYxNzMsLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMzc1
+NDgxMDgzXX0=
 -->
