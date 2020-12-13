@@ -47,7 +47,7 @@ Populate this configuration file with each machine's respective IP addresses in 
 ``unpack.sh`` will deploy a given tar package to the machines referenced in ``targets.ini``.
 This will create ``deployment/`` directories in each of the machines that contains:
 * ``cfg/`` contains ``.ini`` files for various configurations
-* 
+* ``libs/`` contains all common libraries used by php 
 
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment`` folder in each of the machines referenced in ``targets.ini``
@@ -67,11 +67,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNjc1NjEwNywtNDMwOTkwMTIzLDY2ND
-AwMTgyLDE4OTM0NTIyMDQsMTIwNzI1MDA1MCwtMzk4MTE5ODM3
-LC03MzEwMDE1MzIsMzM4NzYzNzY0LDE2OTE0MjYxNzMsLTE3Mz
-gwMDcxNzEsLTMyNjkyMzk5MywxMzc1NDgxMDgzLDM1MzkwODM4
-NSwtODA4MjY2NjI4LC0yMDA4NTAwNTMwLDE1MjM0ODM4MywyMD
-EyOTYyNzc0LDEzMDAyNjE3NzAsNjIyNTIwNjYwLDE4NDU4OTE4
-OTJdfQ==
+eyJoaXN0b3J5IjpbODg2MjY1OTQsMTkyNjc1NjEwNywtNDMwOT
+kwMTIzLDY2NDAwMTgyLDE4OTM0NTIyMDQsMTIwNzI1MDA1MCwt
+Mzk4MTE5ODM3LC03MzEwMDE1MzIsMzM4NzYzNzY0LDE2OTE0Mj
+YxNzMsLTE3MzgwMDcxNzEsLTMyNjkyMzk5MywxMzc1NDgxMDgz
+LDM1MzkwODM4NSwtODA4MjY2NjI4LC0yMDA4NTAwNTMwLDE1Mj
+M0ODM4MywyMDEyOTYyNzc0LDEzMDAyNjE3NzAsNjIyNTIwNjYw
+XX0=
 -->
