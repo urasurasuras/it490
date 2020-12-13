@@ -49,7 +49,7 @@ This will create ``deployment/`` directories in each of the machines that contai
 * ``cfg/`` contains ``.ini`` files for various configurations
 * ``libs/`` contains all common libraries used by the scripts
 * ``client/`` contains all the Front End scripts prefixed with ``FE_*.php``
-* ``database/`` contains all the Database 
+* ``database/`` contains all the Database scripts prefixed ``DB_*
 
 
 ``packfromdeployment.sh`` will compile a tar package with the version number in the build folder, pulling the code from ``deployment`` folder in each of the machines referenced in ``targets.ini``
@@ -69,11 +69,11 @@ The web page will be deployed into ``/var/www/front_end`` when the deployment sc
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1NjIwNDAyNywyNDU3MjcwMDAsLTEyNT
-czMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2MTA3LC00MzA5OTAx
-MjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMjA3MjUwMDUwLC0zOT
-gxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3NjQsMTY5MTQyNjE3
-MywtMTczODAwNzE3MSwtMzI2OTIzOTkzLDEzNzU0ODEwODMsMz
-UzOTA4Mzg1LC04MDgyNjY2MjgsLTIwMDg1MDA1MzAsMTUyMzQ4
-MzgzXX0=
+eyJoaXN0b3J5IjpbLTE5NDA4NDkyMDcsMTQ1NjIwNDAyNywyND
+U3MjcwMDAsLTEyNTczMTE5ODMsLTY0MDE5Mzc5MSwxOTI2NzU2
+MTA3LC00MzA5OTAxMjMsNjY0MDAxODIsMTg5MzQ1MjIwNCwxMj
+A3MjUwMDUwLC0zOTgxMTk4MzcsLTczMTAwMTUzMiwzMzg3NjM3
+NjQsMTY5MTQyNjE3MywtMTczODAwNzE3MSwtMzI2OTIzOTkzLD
+EzNzU0ODEwODMsMzUzOTA4Mzg1LC04MDgyNjY2MjgsLTIwMDg1
+MDA1MzBdfQ==
 -->
