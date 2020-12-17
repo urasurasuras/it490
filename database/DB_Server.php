@@ -165,7 +165,7 @@ function doRegister($username,$password, $bnet) {
   else{
     $registerQuery = "INSERT INTO users (username, password, bnet) VALUES ('".$username."', '".$password."', '".$bnet."')";
     $result = $DB->query($registerQuery);
-
+$hashed = hash ('sha512', $password);
     $responseArray['returnCode']  = '0';
     $responseArray['message']     = 'User: '.$username.' was registered with BNET: '.$bnet;
     $responseArray['username']    = $username;
