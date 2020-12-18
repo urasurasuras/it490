@@ -27,7 +27,7 @@ $request = array();
 $request['type'] = $_POST["type"];
 $request['username'] = $_POST['username'];
 $request['password'] = $_POST['password'];
-$request['bnet'] = $msg;
+$request['bnet'] = $_POST['bnet'];
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 @ob_end_clean();

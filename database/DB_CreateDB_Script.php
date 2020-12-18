@@ -38,7 +38,7 @@ $conn-> select_db($sql);
 $query = "CREATE TABLE IF NOT EXISTS ".$db_name.".".$table_name_users." (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    hash VARCHAR(128) NOT NULL,
     bnet     VARCHAR(20),
 	private BOOLEAN,
 	skillRating SMALLINT

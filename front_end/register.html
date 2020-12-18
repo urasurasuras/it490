@@ -1,0 +1,47 @@
+<html>
+<script>
+
+function HandleLoginResponse(response)
+{
+
+	var resp = JSON.parse(response);
+	var returnCode = 	parseInt(resp.returnCode);
+	if (returnCode == 0){
+		document.getElementById("textResponse").innerHTML = "response: "+resp.message;
+	}
+	else{
+		document.getElementById("textResponse").innerHTML = resp.returnCode;	
+	}
+}
+
+function SendRegisterRequest(username,password,bnet)
+{
+	document.getElementById("textResponse").innerHTML = "response: "+this.responseText  +"<p>";	
+	var request = new XMLHttpRequest();
+
+	request.open("POST","client/FrontEnd_test_Client.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+	request.onreadystatechange= function ()
+	{
+
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+		}		
+	}
+	request.send("type=register&username="+username+"&password="+password+"&bnet="+bnet);
+}
+</script>
+
+<label for="username"><b>Username</b></label>
+<input type="text" placeholder="Enter Username" id="username" required>
+<label for="password"><b>Password</b></label>
+<input type="password" placeholder="Enter Password" id="password" required>
+<label for="text"><b>Battle.net</b></label>
+<input type="text" placeholder="Enter BNET" id="bnet" required>
+<button type="submit" OnClick='SendRegisterRequest(document.getElementById("username").value, document.getElementById("password").value, document.getElementById("bnet").value)'>Register</button>
+
+<div id="textResponse">
+	awaiting response
+</div>

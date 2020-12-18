@@ -13,7 +13,7 @@ set_error_handler(array($logger, 'onError'));
 
 echo basename(__FILE__)." BEGIN".PHP_EOL;
 
-$server = new rabbitMQServer($cfgDir."testRabbitMQ.ini","API_Client");
+$server = new rabbitMQServer($cfgDir."testRabbitMQ.ini","testServer");
 
 $hostname = 'localhost';
 $user = 'testuser';
@@ -36,8 +36,8 @@ if ($conn->connect_error) {
  * grant all privileges on testdb.* to 'testuser'@'localhost';
  * flush privileges;
  * use testdb;
- * create table users (id int NOT NULL, username varchar(20), password varchar(20), primary key (id));
- * insert into users (id, username, password) values ('1', 'testuser', 'testpass');
+ * create table users (id int NOT NULL, username varchar(20), hash varchar(20), primary key (id));
+ * insert into users (id, username, hash) values ('1', 'testuser', 'testpass');
  * 
  * TODO: Come up with more sophisticated 'returnCode's
  */
@@ -68,6 +68,7 @@ function requestProcessor($request)
   {
     return "ERROR: unsupported message type";
   }
+	
   switch ($request['type'])
   {
     case "getJSON":
@@ -95,7 +96,6 @@ function doLogin($username,$password)
   $localLogger = $GLOBALS['logger'];
   $DB = $GLOBALS['conn']; // Locally reference the globally defined connection
   $responseArray = array();// Init response array
-
   // Get the whole row for asked username
   $queryUSER = "SELECT * FROM users WHERE username='".$username."';"; 
   $responseUSER = $DB->query($queryUSER); // Get response from using query
@@ -108,7 +108,10 @@ function doLogin($username,$password)
     $localLogger->logg("Username not found");
   }
   else{// If user does exist
-    if ($row['password'] != $password){// If password does not match
+	$hashed = hash('sha512', $password);
+
+  echo $hashed.PHP_EOL;
+    if ($hashed != $row['hash']){// If password does not match
       $responseArray['returnCode']  = '2';
       $responseArray['message']     = "Incorrect password for ".$username.".";  
       $localLogger->logg("wrong password for the username");
@@ -118,8 +121,8 @@ function doLogin($username,$password)
         $responseArray['bnet'] = $row['bnet'];
       }
       
-      if(isset($row['rating'])){// If SR is NOT null
-        $responseArray['rating'] = $row['rating'];
+      if(isset($row['skillRating'])){// If SR is NOT null
+        $responseArray['rating'] = $row['skillRating'];
       }
 
       $responseArray['returnCode']  = '0';
@@ -148,9 +151,13 @@ function doRegister($username,$password, $bnet) {
   $localLogger = $GLOBALS['logger'];
   $DB = $GLOBALS['conn']; // Locally reference the globally defined connection
   $responseArray = array();// Init response array
+  
 
   $login = doLogin($username,$password);
   
+  	$hashed = hash('sha512', $password);
+	echo "Hashed password: ".$hashed.PHP_EOL;
+
   if($login['returnCode'] == '0'){// If user was found in DB
     $responseArray['returnCode']  = '0';
     $responseArray['message']     = 'User: '.$login['username'].' was found';
@@ -163,13 +170,12 @@ function doRegister($username,$password, $bnet) {
     }
   }
   else{
-    $registerQuery = "INSERT INTO users (username, password, bnet) VALUES ('".$username."', '".$password."', '".$bnet."')";
+    $registerQuery = "INSERT INTO users (username, hash, bnet) VALUES ('".$username."', '".$hashed."', '".$bnet."')";
     $result = $DB->query($registerQuery);
-$hashed = hash ('sha512', $password);
     $responseArray['returnCode']  = '0';
     $responseArray['message']     = 'User: '.$username.' was registered with BNET: '.$bnet;
     $responseArray['username']    = $username;
-    $responseArray['password']    = $password;
+    $responseArray['password']    = $hashed;
     $responseArray['bnet']        = $bnet;
   }
 
